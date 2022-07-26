@@ -1,4 +1,5 @@
 # Linux
+> For the bash script demo done during class on Tuesday, July 26th, please see this repo [here](https://github.com/220725-Reston-Java-Full-Stack-Next-Gen/test-ak)!
 
 - Terminals vs Shell
     - Terminal is software/hardware that will run a Shell
