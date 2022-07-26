@@ -1,0 +1,154 @@
+# Review Questions - W1
+Here is a suggested list of questions that you may be asked by QC. Make sure you are able to answer the question by addressing the What, How, and Why.
+
+If you need help formatting your answers, look to the 'How to Do Well in QC' document that is on your RevaturePro Curricullum.
+
+## Git Questions
+- What is version control? 
+- What is the difference between a distributed version control system and a central version control system? Which one is git?
+- What is git? What is GitHub?
+- Explain the following git commands and what they do:
+    - git pull
+    - git push
+    - git add
+    - git commit
+    - git status
+    - git log
+    - git branch
+    - git remote
+    - git clone
+    - git init
+- Explain the typical git workflow (like if you want to submit a new Java class from your local repo to the remote repo on GitHub).
+    - also can be asked as: "What is basic snapshotting in Git?"
+- What is a branch? How do you make your own branch?
+
+## Unix/Linux Questions
+- What is the difference between Unix and Linux?
+- List some Linux distributions that we can use.
+- Explain the terms:
+    - terminal
+    - shell
+    - command line
+- What is the bash shell? 
+- How would you make a bash script?
+- What is the shebang? What is its purpose in a bash script?
+- What is an environment variable and how would you set one on your local machine?
+- What is the difference between relative and absolute paths? 
+- Where are the root and home directories located? How to get to each? 
+- What Linux command would you use to (be able to give the syntax for each): 
+    - Search for text in a text file 
+    - Navigate your file hierarchy on the command line? 
+    - List files? What about hidden files?  
+    - See permissions for the files? 
+    - Change the permissions of a file 
+    - Edit a file from the terminal
+    - Move a file to different folder
+    - Delete a file
+- How do file permissions work on a Linux system?
+
+## Java Questions
+- What is Java? What are some of the features/benefits of Java and what do they mean?
+- What is JRE / JDK / JVM? 
+- What is the difference between an object and a class? 
+- What is the root class from which every class extends? 
+- What are the primitive data types in Java? 
+- Explain stack vs heap
+- Where are Strings stored in memory? 
+- Are variable references stored on the stack or heap? What about the objects they refer to? 
+- What is a stack trace? What kind of information do they tell you? 
+- What are annotations? 
+- What is a POJO?
+- Explain the POJO Design Pattern. 
+- What is garbage colleciton?
+- Can you force garbage collection in Java? When is an object eligible for GC? 
+- Why are strings immutable in java? How would you make your own objects immutable? 
+- What is the difference between String, StringBuilder, and StringBuffer? 
+- What are the different variable scopes in Java? 
+- What are the access modifiers in Java? Explain them. 
+- What are the non-access modifiers in Java? 
+- What is the difference between static and final variables? 
+- What are the default values for all data types in Java? 
+- What is a wrapper class? List them. 
+- What is autoboxing / unboxing? 
+- Is Java pass-by-value or pass-by-reference? 
+- How can you make a class immutable? 
+- If two objects are equal, do they have the same hashcode? If not equal? 
+- What is a conditional statement? What are the different types?
+- What data types are supported in switch statements? 
+- What is a method?
+- What is the difference between a package and an import in Java?
+- Can an import be static? Give an example of one. 
+- What methods are available in the Object class? 
+- What is the difference between == and .equals()? 
+- What is an enhanced for loop? 
+- What does the “super” keyword do? 
+- What is the first line of any constructor? 
+- What happens if you don’t define a constructor for a class? Can you still instantiate it? 
+- What is a literal value in Java?
+- What are operators? List some operators.
+- What is the compliation process that our Java code goes through?
+- What is the difference between final, .finalize(), and finally? 
+- What is an exception? What makes it different from an error?
+- Explain the difference between throw, throws, and Throwable 
+- Do you need a try block? 
+- Do you need a catch block? Can you have more than 1? Is there an order to follow? 
+- What is base class of all exceptions? What interface do they all implement? 
+- List some checked and unchecked exceptions
+- Can you catch more than one exception in a single catch block? 
+- What is JUnit? 
+- What is TDD? 
+- What are the annotations in JUnit? Order of execution? 
+- What are assertions?
+- Give an example of a test case 
+- How would you prevent a test from being run without commenting it out?
+- What is Mockito? How do you use it in a test case?
+- What is the difference between a mock and a stub?
+- What is the difference between a parameter and an argument?
+- What are collections in Java? 
+- What are the interfaces in the Collections API? 
+- What is the difference between an Array and an ArrayList? 
+- Are Maps in the Collections API? What makes Map different from other interfaces? 
+- List several ways to iterate over a Collection. How would you iterate over an ArrayList? 
+- What is the purpose of the Iterable interface? What about Iterator? 
+- What is the difference between the Comparable and Comparator interfaces? 
+- What are generics? What is the diamond operator (<>)? 
+- Create and instantiate a generic class. Create and use a generic method.
+- What is the generic wildcard? What does it mean? How do you use in your Java code?
+- How do you serialize / deserialize an object in Java? 
+- Difference between FileReader and BufferedReader? 
+- Explain the try-with-resources syntax 
+- List some methods in the Scanner class 
+- What is Maven?
+- Where / when does Maven retrieve dependencies from? Where are they stored locally? 
+- What is the POM and what is the pom.xml? 
+- What are the OOP Pillars? What do each of them mean?
+- Be able to give a definition, real-life example, and Java-related example about each of the pillars:
+    - Abstraction
+    - Polymorphism
+    - Inheritance
+    - Encapsulation
+- What are states in OOP? Behaviors?
+- What is shadowing?
+- What is a covariant?
+
+## DS & A Questions
+- What is a data structure? What is an algorithm?
+- How would you make your own algorithm?
+- What is a breadcrumb statement?
+- What is the difference between time complexity and space complexity?
+- What are asymptotic notations / What is Big-O?
+- What is amortized analysis?
+- What is a stack?
+- What is an array?
+- How are arrays indexed?
+- What is recursion?
+- What is an ArrayList?
+
+## Other Questions
+- What is SDLC?
+- Explain the different phases of SDLC and its purpose to software development in general.
+- What is a sprint?
+- What is a daily scrum meeting?
+- What is a retrospective?
+- What is SOLID? What does it stand for?
+- What is an IDE?

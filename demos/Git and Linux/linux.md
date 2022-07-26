@@ -1,0 +1,81 @@
+# Linux
+
+- Terminals vs Shell
+    - Terminal is software/hardware that will run a Shell
+    - Shell is the software that will receive instructions/commands to interact with the system
+- What can I do with a Shell?
+    - `sudo`
+        - Super User Do
+        - "Do something as super user"
+        - What is super user?
+            - Equivalent to Administrator
+            - Often it is called `root`
+    - Navigate files
+        - `pwd`
+        - `cd`
+        - `cat`
+    - Execute programs
+        - Refer to the execeutable by it's location and name to run it
+        - `sh`
+            - Run a shell inside a shell
+            - Create `Shell Scripts`
+            - Create a sub-shell and execute all of the instructions inside a file
+            - VERY POWERFUL
+        - Package Managers
+            - Package: Collection of files
+            - Manages these "packages"
+            - Generally speaking, these "packages" will be executables/programs
+            - Install, Delete, configure, manipulate these executables/programs
+                - List, purge, search
+            - `apt`
+            - `apt-get`
+            - `yum`
+            - `npm`
+            - `scoop`
+    - Modify directories/files
+        - `touch`
+        - `mkdir`
+        - `mv`
+        - `rm`
+        - `sed`
+        - `cp`
+            - Stream Editor
+        - Text Editors
+            - `vi` or `vim`
+            - `nano`
+            - `sublime`
+                - Must download
+        - `chmod`
+            - Linux uses "File Mode Bits" to represent permissions in regards to files/folders
+            - You can see them with `ls -l`
+            - There are 9, which represent read, write, execute permissions for 3 categories
+                - user, group, others
+            - Each user also gets a group, of which they are the only member of
+            - If some software wants to behave as user, it can register a user and a group
+                - Instead of being a true user, it is called a `service`
+        - `chgrp`: Change Group
+        - `chown`: Change Owner
+    - Interact with system configuration
+        - Environment Variables
+        - `env` to print all Environment Variables
+        - `echo` with `$` as a prefix to interpolate the value of an Environment variable
+    - Manipulate Hardware
+    - Check status of the system
+        - Resources being used
+        - State of different hardware
+        - Status of programs
+    - Networking
+        - `ssh` to connect to other systems
+            - Secure Shell
+        - `curl` to send network requests
+What is the PATH?
+- List of folders/directories
+- List of folders/directories to search for executable programs that are accessible through a shell
+- When you execute a program (generally through a terminal/shell), the system will look through the directories listed in the PATH environment variable (in order), and when it finds the executable with the same, it will run it
+
+What is the difference between a `Thread` and `Process` and a `Service`?
+- A Thread is a flow of control of a program
+- Processes can consist of multiple Threads
+- A service is a Daemon Process, which means it is a process (or multiple processes) that is long-running, and often in the background
+- A process is really just a running program
+    - Either in the foreground or background
