@@ -52,4 +52,3 @@ Here you will find all of the notes & resources for training.
 | 3-4PM EST     |    L   |    L    |     o     |     L    |    -   |
 | 4-5PM EST     |    L   |    L    |     o     |     L    |    -   |
 | 5-6PM EST     |    i   |    i    |     o     |     i    |    -   |
-# eric-notes
