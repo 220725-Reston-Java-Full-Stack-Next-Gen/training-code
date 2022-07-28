@@ -6,6 +6,7 @@ ex.
 - Retail
 - University
 - Bank
+- etc.
 
 ## Flowcharts
 **State-chart Diagram (Reimbursement Statuses)** 
