@@ -69,6 +69,9 @@ public class MainDriver {
 		//System.out.println(bullets.toString());
 		System.out.println(Arrays.toString(bullets)); //this is the Arrays utility class that allows us to manpulate our arrays to show or change some data
 		//https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html
+		
+		Test obj = new Test();
+		obj.testMessage("Hi, Azhya");
 	}
 
 }
