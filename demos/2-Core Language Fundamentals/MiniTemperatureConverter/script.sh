@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/sh
+javac src/com/azhya/code/*.java
 
-javac MainDriver.java
+echo "part one done"
 
-java MainDriver
+java -cp ./src com.azhya.code.MainDriver
