@@ -21,12 +21,6 @@ public class MainDriver {
 	//static int troubleNumber = 2000;
 	
 	public static void main(String[] args) {
-//		for(int troubleNumber = 0; troubleNumber < 10; troubleNumber++) {
-//			
-//			//what type of scope is this one?
-//			//block scope
-//			System.out.println(troubleNumber);
-//		}
 		
 		attack(goku, goku2);
 		
@@ -39,6 +33,12 @@ public class MainDriver {
 		//what type of scope --> method scope
 		//int troubleNumber = 2000;
 		
+//		for(int troubleNumber = 0; troubleNumber < 10; troubleNumber++) {
+//			
+//			//what type of scope is this one?
+//			//block scope
+//			System.out.println(troubleNumber);
+//		}
 	}
 	
 	public static void attack(Saiyan s1, Saiyan s2) {
