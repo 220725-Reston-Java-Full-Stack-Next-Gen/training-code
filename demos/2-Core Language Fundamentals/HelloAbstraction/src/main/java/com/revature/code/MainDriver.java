@@ -16,7 +16,7 @@ public class MainDriver {
 		//making it unable to view other implemented method in that subclass
 		a1.makeSound();
 		
-		//Animal a2 = new Fish(); makeActualSound() cannot be used here
+		//Animal a2 = new Fish(); //makeActualSound() cannot be used here
 		Fish a2 = new Fish();
 		a2.makeActualSound(3);
 		
