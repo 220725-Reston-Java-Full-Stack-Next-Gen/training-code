@@ -114,3 +114,39 @@ values
 	('Insulin', 25.50, date '2023-05-31', 1),
 	('BadMedX', 6.00, date '1874-09-17', 1),
 	('GoodMed3000', 1300.25, date '2025-12-31', 1);
+	
+------------------------
+
+--Select statements 
+-- SELECT command will retrieve or query the records inside of a database table
+
+--how to select all records from employees
+-- * is the wildcard for all columns within a given table 
+select * from employees;
+
+--when we execute our SQL queries, we are returned back a result set! This holds all of the records that correlate with your querying criteria
+
+--narrow my result set to return only employees whose id equals to 8
+--to narrow down the info querying, we would use the WHERE clause
+--WHERE clause is used to filter our information based on a condition 
+select * from employees where id = 8;
+
+--get all names and birthdates for all employees whose has an A in their first name
+select first_name, birthdate 
+from employees 
+where first_name like '%a%' or first_name like '%A%'; --like command is used to filter based on a regex or string pattern that you are searching for 
+--the % serves as a wildcard character in the pattern format 
+--OR keyword here just combines clauses together (like if statement would in java, either side can be true and render a result set)
+
+--view all employees from hr 
+select * from employees where job_title like '%H%';
+
+select * from departments d where d.id = 3; --this 'd' is known as a table "alias" (alternative, temporary name for a table)
+--the alias allows us quick access to any table's columns and records
+
+--all departments in order of monthly budget from least to greatest
+--ORDER BY clause allows us to sort our query based on a data category (typically numerical), asc (ascending) or desc (descending)
+-- by default ORDER BY is ordered ascendingly!!
+select * from departments d order by d.monthly_budget;
+
+--DML comes with a lot of commands and features that we will explore over the next few days
