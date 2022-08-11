@@ -2,6 +2,8 @@ package com.revature.daos;
 
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -112,16 +114,124 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 
 	@Override
-	public Employee update(int empId, String email) {
-		// TODO Auto-generated method stub
+	public Boolean update(int empId, String email) {
+		// here we are going to update the database for a user
+		//in this example we are just updating the email
+		
+		try {
+			
+			String sql = "UPDATE employees SET email=? WHERE id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+			pstmt.setString(1,email);
+			pstmt.setInt(2, empId);
+			
+			if(pstmt.executeUpdate() > 0) {
+				return true;
+			};
+			
+			
+		
+		} catch (SQLException sqlEx){
+			System.out.println("This is the employee Doa impl - update() " 
+					+sqlEx.getMessage());
+		}
+		
+		return false;
+	}
+	
+	//example of method overloading  -> same name , different params /different return type
+//	public Employee update(String name) {
+//		return null;
+//	}
+
+
+	//Java can downcast and upcast Reference Types (aka in our models) itself
+	//Java will not allow automatic upcasting/downcasting for Return types.
+	@Override
+	public Boolean delete(int empId) {
+		try {
+			
+			
+			String sql = "DELETE FROM employees WHERE id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, empId);
+			
+			// it will return true if the first result is  resultSet
+			return pstmt.execute();
+			
+			// we can use Exception even though these methods specifically throw SQLExceptions 
+			//because Exception is the parent class of all Exceptions
+		}catch(Exception e) {
+			System.out.println("This is the employee Doa impl - delete() " + e.getMessage());
+		}
+		return true;
+	}
+	
+	public Employee logInEmployee(String email, String password) {
+		
+		// Note: we do not have a password field on our table at the moment
+		// So, i will use the employees last name to act as the password
+		
+		try {
+			
+			String sql = "SELECT * FROM employees WHERE email=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, email);
+			
+			//Note: as we are getting further in developing our apps we will had to ensure
+			//that email is set to be unique . why ? multiple users should not have the same email
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+//			private Integer employeeId;
+//			private String employeeFirstname;
+//			private String employeeLastname;
+//			private LocalDate employeeBirthday;
+//			private Double monthlyIncome;
+//			private LocalDate employeeStartdate;
+//			private String jobTitle;
+//			private String email;
+			
+			if(rs.next() && rs.getString("last_name").equals(password)) {
+				// note the && operator checks to see if BOTH conditions are true because coming into the
+				// body to execute the code inside ; aka login a user (return that user)
+				
+				return new Employee(rs.getInt("id"),
+						rs.getString("first_name"),
+						rs.getString("last_name"),
+						LocalDate.now(),
+						rs.getDouble("monthly_income"),
+						LocalDate.now(),
+						rs.getString("job_title"),
+						rs.getString("email"));
+						
+			}
+			
+			
+			
+		}catch(Exception e) {
+			
+			System.out.println("This is the employee Doa impl - logInEmployee() " + e.getLocalizedMessage());
+		}
+		
 		return null;
 	}
-
-
-	@Override
-	public boolean delete(int empId) {
-		// TODO Auto-generated method stub
-		return false;
+	
+	//"homework" 
+	public List<Employee> getAllEmployees(){
+		
+		
+		List<Employee> employees = new ArrayList<Employee>();
+		
+		String sql = "SELECT * FROM employees";
+		
+		//if we are selecting we ill be executing a query be a query
+		//then we want to continuously go through the result set and addd each employee to our 
+		// employee list above then return the list
+		
+		
+		return employees;
 	}
 	
 	

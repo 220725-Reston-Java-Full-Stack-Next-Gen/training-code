@@ -16,9 +16,9 @@ public interface EmployeeDAO {
 	
 	Employee read(int empId);
 	
-	Employee update(int empId, String email);
+	Boolean update(int empId, String email);
 	
-	boolean delete(int empId);
+	Boolean delete(int empId);
 	
 	
 	

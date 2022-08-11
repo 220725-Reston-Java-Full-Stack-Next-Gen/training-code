@@ -7,11 +7,15 @@ public class Employee {
 	// variables are considered the state of an object
 	// where the object is the class
 	
+	//note: it is conventional and encouraged that you
+	//your data types
+	
+	
 	private Integer employeeId;
 	private String employeeFirstname;
 	private String employeeLastname;
 	private LocalDate employeeBirthday;
-	private double monthlyIncome;
+	private Double monthlyIncome;
 	private LocalDate employeeStartdate;
 	private String jobTitle;
 	private String email;
@@ -28,11 +32,11 @@ public class Employee {
 	}
 
 
-	// this is out all args constructor
+	// this is our all args constructor
 	//when we are reading from our database we will use this constructor to build our object
 	
 	public Employee(int employeeId, String employeeFirstname, String employeeLastname, LocalDate employeeBirthday,
-			double monthlyIncome, LocalDate employeeStartdate, String jobTitle, String email) {
+			Double monthlyIncome, LocalDate employeeStartdate, String jobTitle, String email) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeFirstname = employeeFirstname;
@@ -47,7 +51,7 @@ public class Employee {
 
 	// here we have our some args constructor because  we do not need the employee id when we are 
 	//creating an employee - aka inserting into the employee table
-	public Employee(String employeeFirstname, String employeeLastname, LocalDate employeeBirthday, double monthlyIncome,
+	public Employee(String employeeFirstname, String employeeLastname, LocalDate employeeBirthday, Double monthlyIncome,
 			LocalDate employeeStartdate, String jobTitle, String email) {
 		super();
 		this.employeeFirstname = employeeFirstname;
