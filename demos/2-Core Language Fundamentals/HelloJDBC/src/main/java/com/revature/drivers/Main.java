@@ -3,13 +3,22 @@ package com.revature.drivers;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.revature.daos.EmployeeDAOImpl;
 import com.revature.models.Employee;
 import com.revature.util.JDBCConnectionUtil;
 
 public class Main {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
+	
+	
 	public static void main(String[] args) {
+		
+	
 		
 //		System.out.println(JDBCConnectionUtil.getConnection());
 		
@@ -29,9 +38,9 @@ public class Main {
 //		Integer empId = empDao.create(tom);
 //		System.out.println((empId));
 		
-//		Employee tiff = new Employee("Tiff","Obi",LocalDate.now(),10_000.00,LocalDate.now(),"Teacher","teacher@email.com");
-//		empDao.create(tiff);
-//		
+		Employee tiff = new Employee("Tiff","Obi",LocalDate.of(1990, 3, 14),10_000.00,LocalDate.of(2020,4,20),"Teacher","trainer@email.com");
+		empDao.create(tiff);
+////		
 //		Employee tom = empDao.read(2);
 //		Employee ghost = empDao.read(3);
 //		
@@ -49,7 +58,7 @@ public class Main {
 		
 		
 		//R = Read
-//		Employee bruceFromDb = empDao.read(5);
+//		Employee bruceFromDb = empDao.read(8);
 //		System.out.println(bruceFromDb.toString());
 		
 		
@@ -57,11 +66,15 @@ public class Main {
 //		System.out.println(empDao.update(5, "brucespruce@yahoo.com"));
 		
 		//D = Delete
-//		System.out.println(empDao.delete(6));
+//		System.out.println(empDao.delete(7));
 		
 		//bonus method = logging in a user or checking login credentials
-		Employee loggedInBruce = empDao.logInEmployee("brucespruce@yahoo.com", "Jones");
-		System.out.println(loggedInBruce.toString());
+//		Employee loggedInBruce = empDao.logInEmployee("brucespruce@yahoo.com", "Jones");
+//		System.out.println(loggedInBruce.toString());
+		
+//		System.out.println(empDao.getAllEmployees().toString());
+		
+		LOGGER.info(empDao.getAllEmployees().toString());
 		
 	}
 }

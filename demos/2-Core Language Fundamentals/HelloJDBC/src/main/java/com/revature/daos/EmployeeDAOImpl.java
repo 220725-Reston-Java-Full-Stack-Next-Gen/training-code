@@ -4,6 +4,10 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -16,7 +20,7 @@ import com.revature.util.JDBCConnectionUtil;
 public class EmployeeDAOImpl implements EmployeeDAO {
 	
 	Connection conn;
-	
+	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeDAOImpl.class);
 	
 	
 	
@@ -66,7 +70,11 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 		
 		} catch(SQLException sqlEx) {
-			System.out.println("This is the EmployeeDAOImpl create() " + sqlEx.getMessage());
+//			System.out.println("This is the EmployeeDAOImpl create() " + sqlEx.getMessage());
+			
+			//we are no longer printing our errors out to the console using Sys.out.print
+			// because we have introduced logging! aka Logback (The framework we are using)
+			LOGGER.error("This is the EmployeeDAOImpl create() " + sqlEx.getMessage());
 		}
 		return null;
 	}
@@ -95,19 +103,20 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 				emp.setEmployeeId(rs.getInt("id"));
 				emp.setEmployeeFirstname(rs.getString("first_name"));
 				emp.setEmployeeLastname(rs.getString("last_name"));
-				emp.setEmployeeBirthday(LocalDate.now());
+				emp.setEmployeeBirthday(rs.getDate("birthdate").toLocalDate());
 				emp.setMonthlyIncome(rs.getDouble("monthly_income"));
-				emp.setEmployeeStartdate(LocalDate.now());
+				emp.setEmployeeStartdate(rs.getDate("hire_date").toLocalDate());
 				emp.setJobTitle(rs.getString("job_title"));
 				emp.setEmail(rs.getString("email"));
 				
 			}
 			
 			
+			
 			return emp;
 			
 		}catch(SQLException sqlEx) {
-			System.out.println(" This is the employee Doa impl - read()" + sqlEx.getMessage());
+			LOGGER.error(" This is the employee Doa impl - read()" + sqlEx.getMessage());
 		}
 		return null;
 	}
@@ -132,7 +141,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			
 		
 		} catch (SQLException sqlEx){
-			System.out.println("This is the employee Doa impl - update() " 
+//			System.out.println("This is the employee Doa impl - update() " 
+//					+sqlEx.getMessage());
+			
+			LOGGER.error("This is the employee Doa impl - update() " 
 					+sqlEx.getMessage());
 		}
 		
@@ -156,13 +168,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, empId);
 			
-			// it will return true if the first result is  resultSet
+			// it will return false if the first result is an update count
+//			TRUE indicates that query returned a ResultSet object 
+//			FALSE indicate returned an int value or returned nothing.
+			 // we want it to return False for our delete method because technically we are not returning 
+			//any result we are just removing it from the db
 			return pstmt.execute();
 			
 			// we can use Exception even though these methods specifically throw SQLExceptions 
 			//because Exception is the parent class of all Exceptions
 		}catch(Exception e) {
-			System.out.println("This is the employee Doa impl - delete() " + e.getMessage());
+//			System.out.println("This is the employee Doa impl - delete() " + e.getMessage());
+			LOGGER.error("This is the employee Doa impl - delete() " + e.getMessage());
 		}
 		return true;
 	}
@@ -200,9 +217,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 				return new Employee(rs.getInt("id"),
 						rs.getString("first_name"),
 						rs.getString("last_name"),
-						LocalDate.now(),
+						rs.getDate("birthdate").toLocalDate(),
 						rs.getDouble("monthly_income"),
-						LocalDate.now(),
+						rs.getDate("hire_date").toLocalDate(),
 						rs.getString("job_title"),
 						rs.getString("email"));
 						
@@ -212,24 +229,57 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			
 		}catch(Exception e) {
 			
-			System.out.println("This is the employee Doa impl - logInEmployee() " + e.getLocalizedMessage());
+//			System.out.println("This is the employee Doa impl - logInEmployee() " + e.getLocalizedMessage());
+			LOGGER.error("This is the employee Doa impl - logInEmployee() " + e.getLocalizedMessage());
 		}
 		
 		return null;
 	}
 	
 	//"homework" 
-	public List<Employee> getAllEmployees(){
+	public ArrayList<Employee> getAllEmployees(){
 		
 		
-		List<Employee> employees = new ArrayList<Employee>();
+		ArrayList<Employee> employees = new ArrayList<Employee>();
 		
 		String sql = "SELECT * FROM employees";
 		
 		//if we are selecting we ill be executing a query be a query
 		//then we want to continuously go through the result set and addd each employee to our 
 		// employee list above then return the list
+		//
+		try {
 		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+		
+		//  we should not create out employee outside of out while loop
+		//it will only add the last row in the table over and over
+		
+//		Employee emp = new Employee();
+		
+		while(rs.next()) {
+			
+			//instead we should stick with creating our employee instance inside our while loop
+			//this was we know that a completely new employee is being created during each iteration of this result set.
+			Employee emp = new Employee();
+			
+			emp.setEmployeeId(rs.getInt("id"));
+			emp.setEmployeeFirstname(rs.getString("first_name"));
+			emp.setEmployeeLastname(rs.getString("last_name"));
+			emp.setEmployeeBirthday(rs.getDate("birthdate").toLocalDate());
+			emp.setMonthlyIncome(rs.getDouble("monthly_income"));
+			emp.setEmployeeStartdate(rs.getDate("hire_date").toLocalDate());
+			emp.setJobTitle(rs.getString("job_title"));
+			emp.setEmail(rs.getString("email"));
+			
+			employees.add(emp);
+		}
+		
+		}catch(Exception e) {
+//			System.out.println(e.getLocalizedMessage());
+			LOGGER.error("This is the employee dao impl - getAllEmployees() "+ e.getLocalizedMessage());
+		}
 		
 		return employees;
 	}
