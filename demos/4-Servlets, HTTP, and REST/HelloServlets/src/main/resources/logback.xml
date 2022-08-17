@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- for XML files we have to set up this encoding tag -->
+<configuration debug="true">
+
+	<property name="LOGS" value="./logs" /> <!-- note this is an example of a self closing tag -->
+
+	<!-- 1.This appender is refering to the logs that will appear in our console -->
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+
+			<!-- this pattern refers to the format that the log will display or append 
+				to the log file %d - date , %t - thread , %level - level , %logger - logger 
+				name , %msg - the message itself %n creates a new line -->
+			<pattern> %d{HH:mm:ss:SSS} [%thread] %-5level %logger{40} - %msg%n
+			</pattern>
+		</encoder>
+
+	</appender>
+
+
+	<!--2. This appender refers to the logs that will appear in out log file -->
+	<appender name="RfAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- below we are saying that when we add a log we will be adding it to 
+			a folder called LOGS and to a file called jdbc-demo-logger.log -->
+		<file>${LOGS}/hello-servlets-logger.log</file>
+		<encoder>
+			<pattern> %d %p %C{1.} [%t] %m%n</pattern>
+		</encoder>
+
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+			<fileNamePattern>
+				${LOGS}/archived/hello-servlets-logger-%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+
+		</rollingPolicy>
+
+	</appender>
+	
+	<!--  below we are defining the root log level of our project-->
+	<!-- and also setting the appender to be "STDOUT which implies it will be the console -->
+	<root level = "FATAL">
+	
+		<appender-ref ref="STDOUT"/>
+	</root>
+
+<!-- Here finally we are setting the logger  -->
+
+<logger name="com.revature" level="ERROR" additivity="false">
+	 <appender-ref ref="STDOUT"/> 
+	<appender-ref ref="RfAppender"/>
+
+</logger>
+
+
+</configuration>

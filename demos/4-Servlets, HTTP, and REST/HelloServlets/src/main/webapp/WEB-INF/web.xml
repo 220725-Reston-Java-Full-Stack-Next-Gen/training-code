@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<!-- This web.xml file is known as the deployment descriptor. Its purpose is to map our
+servlets by determining which URI patterns any given request can go to! -->
+
+<!-- Here we are listing our servlet name and the package at which it is located -->
+<servlet>
+	<servlet-name>FrontController</servlet-name>
+	<servlet-class>com.revature.web.FrontController</servlet-class>
+</servlet>
+
+<!-- Here we are defining the URI patterns that belong to our servlet -->
+<!-- Tomcat will take this list and as request come into the web container, Tomcat will 
+redirect that request to this servlet! -->
+<servlet-mapping>
+	<servlet-name>FrontController</servlet-name>
+	<url-pattern>/register</url-pattern>
+	<url-pattern>/error</url-pattern>
+</servlet-mapping>
+
+<!-- Here at this error-page element, we are defining how to handle exceptions within this servlet -->
+<!-- Therefore, if any user gets a 404 error, they will be redirected to a custom error page in this application -->
+<error-page>
+	<error-code>404</error-code>
+	<location>/error</location>
+</error-page>
+</web-app>
