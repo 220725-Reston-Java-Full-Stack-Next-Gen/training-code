@@ -1,6 +1,9 @@
 package com.revature.daos;
 
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.slf4j.Logger;
@@ -30,14 +33,30 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public int create(User user) {
 		LOGGER.info("In UserDAOImpl - adding user: " + user);
+		int targetId = 0;
 		
 		try (Connection conn = JDBCConnectionUtil.getConnection()){
-			String sql = "insert into users (name, job_title, hiredate) values(?, ?, ?, ?)";
+			String sql = "insert into users (name, job_title, hiredate) values(?, ?, ?)";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, user.getName());
+			ps.setString(2, user.getJobTitle());
+			ps.setDate(3, Date.valueOf(user.getHireDate()));
+			
+			ps.executeUpdate(); 
+			
+			//this will return the new ID number that was created by the DB
+			ResultSet rs = ps.getGeneratedKeys();
+			
+			rs.next();
+			targetId = rs.getInt("id");
 			
 		}catch(SQLException e) {
 			LOGGER.warn("Unable to execute SQL query: " + e);
 		}
-		return 0;
+		
+		LOGGER.debug("In UserDAOImpl - create was successfully. New user ID: " + targetId);
+		return targetId;
 	}
 
 }
