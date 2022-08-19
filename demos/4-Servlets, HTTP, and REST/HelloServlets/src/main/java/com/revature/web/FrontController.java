@@ -35,6 +35,10 @@ public class FrontController extends HttpServlet{
 				//b. make the RequestHelper method call
 				RequestHelper.processRegistration(req, resp);
 				break;
+			case "login":
+				LOGGER.info("User is trying to login to application using id and name...");
+				RequestHelper.processLogin(req, resp);
+				break;
 			default:
 				LOGGER.warn("ERROR: " + URI);
 				break;

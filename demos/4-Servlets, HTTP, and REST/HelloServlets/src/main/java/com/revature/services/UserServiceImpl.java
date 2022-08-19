@@ -35,4 +35,24 @@ public class UserServiceImpl implements UserService {
 		return id;
 	}
 
+	@Override
+	public boolean loginUser(int id, String name) {
+		LOGGER.info("In UserServiceImpl - loginUser() started");
+		
+		//retrieve the user from DB
+		User target = userDao.getById(id);
+		
+		//compare the names to see if this is a successful login match or not
+		if(target.getId() == id && target.getName().equals(name)) {
+			//then this is good login
+			LOGGER.debug("Successful match - credentials are approved!");
+			return true;
+		}else {
+			LOGGER.warn("Unsucessful match - credentials have been denied.");
+		}
+		
+		LOGGER.info("In UserServiceImpl - loginUser() ended");
+		return false;
+	}
+
 }

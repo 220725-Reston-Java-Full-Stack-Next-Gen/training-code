@@ -12,5 +12,7 @@ public interface UserService {
 	 */
 	
 	int registerUser(User user);
+	
+	boolean loginUser(int id, String name);
 
 }

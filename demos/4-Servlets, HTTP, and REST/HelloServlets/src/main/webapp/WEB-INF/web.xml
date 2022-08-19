@@ -15,6 +15,7 @@ redirect that request to this servlet! -->
 <servlet-mapping>
 	<servlet-name>FrontController</servlet-name>
 	<url-pattern>/register</url-pattern>
+	<url-pattern>/login</url-pattern>
 	<url-pattern>/error</url-pattern>
 </servlet-mapping>
 

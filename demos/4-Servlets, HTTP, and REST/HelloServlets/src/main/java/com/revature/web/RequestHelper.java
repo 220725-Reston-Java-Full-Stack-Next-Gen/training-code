@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -122,6 +123,75 @@ public class RequestHelper {
 		}
 		
 		LOGGER.info("In RequestHelper - processRegistration() ended");
+	}
+
+	public static void processLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		//extracting info from request body
+		LOGGER.info("In RequestHelper - processLogin() started");
+		//we need to do string manpuliation to extract info from body
+		//Here the request body will look like this:
+		/*{
+		    "id": 15,
+		    "name": "Bob the Builder"
+		}*/
+		
+		BufferedReader reader = req.getReader();
+		StringBuilder sb = new StringBuilder();
+		
+		String line = reader.readLine();
+		
+		while(line != null) {
+			sb.append(line);
+			line = reader.readLine();
+		}
+		
+		String body = sb.toString();
+		
+		LOGGER.info("Request body for registration is: " + body);
+		
+		String[] info = body.replaceAll("\\{", "").replaceAll("\"", "").replaceAll("}", "").split(",");
+		List<String> values = new ArrayList<>();
+		
+		for(String pair : info) {
+			LOGGER.info("Original body K/V pair: " + pair.trim());
+			String valOnly = pair.substring(pair.indexOf(":") + 1).trim();
+			LOGGER.info("Going into values arraylist --> " + valOnly);
+			values.add(valOnly);
+		}
+		
+		LOGGER.info("User information extracted is: " + values.toString());
+		
+		//make my temp user for before the service call
+		//NOTE: this step is not needed if you do not need the full Java object
+		
+		//make the service method call
+		boolean isLoggedIn = userService.loginUser(Integer.parseInt(values.get(0)), values.get(1));
+		
+		PrintWriter pw = resp.getWriter();
+		ObjectMapper om = new ObjectMapper();
+		
+		//create the response	
+		if(isLoggedIn == true) {
+			resp.setContentType("application/json");
+			resp.setStatus(200);
+			
+			//now that we have a successfully logged in user, we must keep track on their session requests
+			//therefore we will be adding a HTTP cookie as a response header
+			
+			//This cookie can then be used with future, subquent requests as it will hold the user's information within its
+			//header info
+			resp.addCookie(new Cookie("Current-User", "Reva-0284-jds2@"));
+			
+			//adding JSON to response
+			pw.println("User was successfully able to log into application.");
+			
+			resp.setStatus(200);
+			LOGGER.info("Login successful - returning cookie in response");
+		}else {
+			resp.setStatus(401); //UNAUTHORIZED STATUS CODE = 401
+			pw.println("Username and/or password didn't match what was on file. Please try again.");
+		}
+		LOGGER.info("In RequestHelper - processLogin() ended");
 	}
 
 }

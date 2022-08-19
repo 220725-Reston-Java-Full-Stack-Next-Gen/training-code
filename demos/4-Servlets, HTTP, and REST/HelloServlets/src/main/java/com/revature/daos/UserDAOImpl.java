@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.apache.log4j.Logger;
 
@@ -60,6 +62,45 @@ public class UserDAOImpl implements UserDAO {
 		
 		LOGGER.info("In UserDAOImpl - create was successfully. New user ID: " + targetId);
 		return targetId;
+	}
+
+	@Override
+	public User getById(int id) {
+		LOGGER.info("In UserDAOImpl - retrieving user by id: " + id);
+		
+		User user = new User();
+		
+		try(Connection conn = JDBCConnectionUtil.getConnection()){
+			//prepare our statement for SQL query
+			String sql = "select * from users where id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			
+			//execute my query and get the results from the result set
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				//set all data into my user object here
+				user.setId(id);
+				user.setName(rs.getString("name"));
+				user.setJobTitle(rs.getString("job_title"));
+				
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+				LocalDate hiredate = LocalDate.parse(rs.getDate("hiredate").toString(), formatter);
+				user.setHireDate(hiredate);
+			}
+		}catch(SQLException e) {
+			LOGGER.warn("Unable to execute SQL statement: " + e.getMessage());
+		}
+		
+		LOGGER.info("Found user - " + user);
+		return user;
+	}
+
+	@Override
+	public User getByName(String name) {
+		// if I have time, I will come back to this
+		return null;
 	}
 
 }
