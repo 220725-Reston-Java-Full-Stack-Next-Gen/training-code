@@ -11,8 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.daos.UserDAOImpl;
@@ -22,7 +21,7 @@ import com.revature.services.UserServiceImpl;
 
 public class RequestHelper {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(RequestHelper.class);
+	private static Logger LOGGER = Logger.getLogger(RequestHelper.class);
 	
 	//because we are making service method calls here, we need an instance of the UserService object
 	private static UserService userService = new UserServiceImpl(new UserDAOImpl());
@@ -32,7 +31,7 @@ public class RequestHelper {
 	public static void processRegistration(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		//NOTE: These steps are to be followed by only POST RequestHelper methods!!! Not as GET, PATCH, DELETE, etc.
 		//1. log the event
-		System.out.println("In RequestHelper - processRegistration() started");
+		LOGGER.info("In RequestHelper - processRegistration() started");
 		int id = 0;
 		
 		//2. extract the user information from the HTTP request body
@@ -54,7 +53,7 @@ public class RequestHelper {
 		String body = sb.toString();
 		
 		//now that we have our body, we are going to 1) log, 2) split the body up based on individual parameters of information
-		System.out.println("Request body for registration is: " + body);
+		LOGGER.info("Request body for registration is: " + body);
 		
 		//Q: How to split body string up into different info (name, job title, hiredate)
 		
@@ -72,15 +71,15 @@ public class RequestHelper {
 		//result: values["name:bob", etc.]
 		
 		for(String pair : info) {
-			System.out.println("Original body K/V pair: " + pair.trim());
+			LOGGER.info("Original body K/V pair: " + pair.trim());
 			String valOnly = pair.substring(pair.indexOf(":") + 1).trim();
-			System.out.println("Going into values arraylist --> " + valOnly);
+			LOGGER.info("Going into values arraylist --> " + valOnly);
 			values.add(valOnly); //here, I trimmed each string in the body to be just displaying the value 
 			//aka removed the extra characters and key from the string. Then added it to the values arraylist
 		}
 		
 		//3. put that information into a temporary User object before making the service method call
-		System.out.println("User information extracted is: " + values.toString());
+		LOGGER.info("User information extracted is: " + values.toString());
 		
 		//a. set the content type of my response to return to the browser
 		resp.setContentType("application/json");
@@ -93,11 +92,11 @@ public class RequestHelper {
 		LocalDate hiredate = LocalDate.parse(values.get(2), formatter);
 		
 		User target = new User(name, jobTitle, hiredate);
-		System.out.println("Target user: " + target);
+		LOGGER.info("Target user: " + target);
 		
 		//4. do the service method call
 		id = userService.registerUser(target);
-		System.out.println("TESTER:: " + id);
+		
 		//convert our response into JSON using Jackson Databind
 		PrintWriter pw = resp.getWriter();
 		
@@ -115,14 +114,14 @@ public class RequestHelper {
 			pw.println(json);
 			
 			resp.setStatus(200);
-			System.out.println("New user info: " + target);
+			LOGGER.info("New user info: " + target);
 		}else {
 			//if userId is 0, that means that request was successful but no new resource was made! (status code of 204)
 			resp.setStatus(204, "Failed to add account in RequestHelper");
 			pw.println("Sorry, system failure. Please try again later.");
 		}
 		
-		System.out.println("In RequestHelper - processRegistration() ended");
+		LOGGER.info("In RequestHelper - processRegistration() ended");
 	}
 
 }

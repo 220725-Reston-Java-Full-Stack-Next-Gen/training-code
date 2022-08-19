@@ -1,14 +1,13 @@
 package com.revature.services;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import com.revature.daos.UserDAO;
 import com.revature.daos.UserDAOImpl;
 import com.revature.models.User;
 
 public class UserServiceImpl implements UserService {
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
+	private static Logger LOGGER = Logger.getLogger(UserServiceImpl.class);
 	
 	//we need to make an instance of our DAO in order to make DB calls from the DAO methods
 	//why did I use both the interface and implmentation class to create a DAO instance in this class?
@@ -26,13 +25,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int registerUser(User user) {
 		//1. log this event into my log file
-		System.out.println("In UserServiceImpl - registerUser() started");
+		LOGGER.info("In UserServiceImpl - registerUser() started");
 		
 		//2. use the DAO object to make a call to the DB
 		int id = userDao.create(user);
 		
 		//3. return the data that came from the DAO layer
-		System.out.println("In UserServiceImpl - registerUser() ended");
+		LOGGER.info("In UserServiceImpl - registerUser() ended");
 		return id;
 	}
 

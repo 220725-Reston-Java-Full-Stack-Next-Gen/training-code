@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 //in order to make a class into a servlet, it must extends the HttpServlet!
 public class FrontController extends HttpServlet{
+	private static final long serialVersionUID = -2358633602178580852L;
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(FrontController.class);
+	private static Logger LOGGER = Logger.getLogger(FrontController.class);
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,19 +24,19 @@ public class FrontController extends HttpServlet{
 		final String URI = req.getRequestURI().replace("/HelloServlets/", "");
 		
 		//2. log this altered URI to my log files
-		System.out.println("User trying to access resource at URI: " + URI);
+		LOGGER.info("User trying to access resource at URI: " + URI);
 		
 		//3. now that we have rewritten the URI, we will use a SWITCH statement to call the appropriate RequestHelper method
 		switch(URI) {
 			case "register":
 				//a. log this choice to log file
-				System.out.println("User is trying to register for a new account...");
+				LOGGER.info("User is trying to register for a new account...");
 				
 				//b. make the RequestHelper method call
 				RequestHelper.processRegistration(req, resp);
 				break;
 			default:
-				System.out.println("ERROR: " + URI);
+				LOGGER.warn("ERROR: " + URI);
 				break;
 		}
 	}

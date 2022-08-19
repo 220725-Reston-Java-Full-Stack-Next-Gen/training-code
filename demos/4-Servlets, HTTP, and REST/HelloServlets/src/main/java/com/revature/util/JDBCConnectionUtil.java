@@ -4,21 +4,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 public class JDBCConnectionUtil {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(JDBCConnectionUtil.class);
+	private static Logger LOGGER = Logger.getLogger(JDBCConnectionUtil.class);
 
 	
 	public static Connection getConnection() {
 		Connection conn = null;
 		
 		try {
-			LOGGER.debug("JDBCConnectionUtil - using DB creds for connection: URL=%s, Username=%s, Password=%s", System.getenv("DB_URL"), 
-					System.getenv("DB_USERNAME"),
-					System.getenv("DB_PASSWORD"));
+			LOGGER.info("JDBCConnectionUtil - using DB creds for connection: URL="+ System.getenv("DB_URL") + 
+					", Username=" + System.getenv("DB_USERNAME") + 
+					", Password=" + System.getenv("DB_PASSWORD"));
 			conn = DriverManager.getConnection(
 					System.getenv("DB_URL"), 
 					System.getenv("DB_USERNAME"),
