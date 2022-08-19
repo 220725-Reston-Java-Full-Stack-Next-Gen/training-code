@@ -16,7 +16,9 @@ public class JDBCConnectionUtil {
 		Connection conn = null;
 		
 		try {
-			
+			LOGGER.debug("JDBCConnectionUtil - using DB creds for connection: URL=%s, Username=%s, Password=%s", System.getenv("DB_URL"), 
+					System.getenv("DB_USERNAME"),
+					System.getenv("DB_PASSWORD"));
 			conn = DriverManager.getConnection(
 					System.getenv("DB_URL"), 
 					System.getenv("DB_USERNAME"),

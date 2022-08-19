@@ -24,18 +24,19 @@ public class FrontController extends HttpServlet{
 		final String URI = req.getRequestURI().replace("/HelloServlets/", "");
 		
 		//2. log this altered URI to my log files
-		LOGGER.debug("User trying to access resource at URI: " + URI);
+		System.out.println("User trying to access resource at URI: " + URI);
 		
 		//3. now that we have rewritten the URI, we will use a SWITCH statement to call the appropriate RequestHelper method
 		switch(URI) {
 			case "register":
 				//a. log this choice to log file
-				LOGGER.debug("User is trying to register for a new account...");
+				System.out.println("User is trying to register for a new account...");
 				
 				//b. make the RequestHelper method call
 				RequestHelper.processRegistration(req, resp);
 				break;
 			default:
+				System.out.println("ERROR: " + URI);
 				break;
 		}
 	}

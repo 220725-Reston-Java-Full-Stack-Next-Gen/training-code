@@ -26,7 +26,7 @@
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<!-- below we are saying that when we add a log we will be adding it to 
 			a folder called LOGS and to a file called jdbc-demo-logger.log -->
-		<file>${LOGS}/hello-servlets-logger.log</file>
+		<file>${LOGS}/jdbc-demo-logger.log</file>
 		<encoder>
 			<pattern> %d %p %C{1.} [%t] %m%n</pattern>
 		</encoder>
@@ -35,7 +35,7 @@
 			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 
 			<fileNamePattern>
-				${LOGS}/archived/hello-servlets-logger-%d{yyyy-MM-dd}.%i.log
+				${LOGS}/archived/jdbc-demo-logger-%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
 
 			<timeBasedFileNamingAndTriggeringPolicy
@@ -65,3 +65,4 @@
 
 
 </configuration>
+

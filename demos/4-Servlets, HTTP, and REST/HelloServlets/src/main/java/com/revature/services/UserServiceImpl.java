@@ -16,18 +16,23 @@ public class UserServiceImpl implements UserService {
 	
 	//Short Reason Why: makes your code less messy (organization) 
 	//and you can use any part of your code in any part of your application (aka modularization)
-	private static UserDAO userDao = new UserDAOImpl();
+	private UserDAO userDao;
+	
+	public UserServiceImpl(UserDAOImpl dao) {
+		super();
+		this.userDao = dao;
+	}
 
 	@Override
 	public int registerUser(User user) {
 		//1. log this event into my log file
-		LOGGER.debug("In UserServiceImpl - registerUser() started");
+		System.out.println("In UserServiceImpl - registerUser() started");
 		
 		//2. use the DAO object to make a call to the DB
 		int id = userDao.create(user);
 		
 		//3. return the data that came from the DAO layer
-		LOGGER.debug("In UserServiceImpl - registerUser() ended");
+		System.out.println("In UserServiceImpl - registerUser() ended");
 		return id;
 	}
 
