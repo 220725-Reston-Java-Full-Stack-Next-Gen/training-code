@@ -4,7 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.SQLException;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -16,6 +22,8 @@ import com.revature.petapp.models.Pet;
 
 // tell JUnit to use Mockito
 @ExtendWith(MockitoExtension.class)
+// runs the test methods in an order defined by @Order annotations
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AdminServiceTest {
 	// tell Mockito the objects that should be mocked
 	@Mock // has Mockito create the mock version of this object
@@ -25,11 +33,24 @@ public class AdminServiceTest {
 	@InjectMocks
 	private AdminService adminServ = new AdminServiceImpl();
 	
+	private static Pet testPet;
+	
+	// @BeforeAll, @BeforeEach, @AfterEach, @AfterAll
+	@BeforeAll // with BeforeAll and AfterAll, the method needs to be static
+	public static void setUp() {
+		testPet = new Pet();
+	}
+	
+	@AfterAll
+	public static void tearDown() {
+		
+	}
+	
 	@Test
+	@Order(1)
+	@DisplayName("Add pet successfully")
 	public void addPetSuccessfully() throws SQLException {
 		// setup
-		Pet testPet = new Pet();
-		
 		Pet mockReturnedPet = new Pet();
 		mockReturnedPet.setId(10);
 		
@@ -48,8 +69,8 @@ public class AdminServiceTest {
 	}
 	
 	@Test
+	@Order(2)
 	public void addPetSomethingWrong() throws SQLException {
-		Pet testPet = new Pet();
 		Mockito.when(petDao.create(testPet)).thenThrow(SQLException.class);
 		
 		Pet actualPet = adminServ.addPet(testPet);
@@ -59,7 +80,6 @@ public class AdminServiceTest {
 	
 	@Test
 	public void editPetSuccessfully() {
-		Pet testPet = new Pet();
 		// if a method that you're mocking is called more than once, and you need it to do
 		// something different each time, you can just put multiple "then" calls.
 		// if it's doing the same thing, you only need one "then" call
@@ -74,7 +94,6 @@ public class AdminServiceTest {
 	
 	@Test
 	public void editPetDoesNotExistInDatabase() {
-		Pet testPet = new Pet();
 		Mockito.when(petDao.findById(testPet.getId())).thenReturn(null);
 		
 		Pet actualPet = adminServ.editPet(testPet);
