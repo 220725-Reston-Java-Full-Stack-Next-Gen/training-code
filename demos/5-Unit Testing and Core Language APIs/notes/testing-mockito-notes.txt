@@ -1,0 +1,56 @@
+integration testing
+	- make sure that different components work properly with their
+	  dependencies ensuring that things still work as "moving parts"
+	  rather than only in pieces	
+Mockito
+	- open source framework for Java that is used with unit
+	  testing frameworks (like JUnit)
+	- it mocks objects for use with unit tests, so that we don't
+	  have to do things like hit our database in every test
+	- @Mock: designates that Mockito needs to generate a mock
+	  implementation of the interface
+	- @InjectMocks: specifies an object that needs to have the mock
+	  implementation injected into it (to replace a real implementation)
+		- in our example, this was over the service that had the 
+		  CatDAO field in its class, and the mock was injected into
+		  this field (basically stepping over the constructor)
+	- when(mock.method(param)).thenReturn(returnVal);
+	  when(mock.method(param)).thenAnswer(paramName -> {
+			return returnVal;
+		});
+	  when(mock.method()).then(invocation -> {
+			// things happening but no return value
+		});
+	- verify(mock).method(param);
+	- @ExtendWith(MockitoExtension.class): this allows us to specify how
+	  we are running our tests if we need any other resources
+		- we need the mockito runner so that our mock implementations
+		  are generated and injected where appropriate
+	- what is the point of mocking?
+		- this allows us to have proper unit tests. without mocking,
+		  our service layer tests would ALSO be calling the DAOs,
+		  because the service layer uses the DAO methods. this would
+		  be integration testing.
+		  in order to isolate the service methods ONLY, we need to
+		  avoid calling the DAOs. what we really want to test when
+		  unit testing is that the individual method does what we
+		  expect, which means that we can assume that everything
+		  else is working normally.
+		  because we can assume this, and because we want to avoid
+		  calling the DAO methods (because what if they AREN't working
+		  as expected? then how do we know which unit the issue is
+		  coming from using our test?), we can simply MOCK the DAO
+		  methods that we want to use.
+		  mocking those methods means essentially hard-coding the
+		  expected return from the DAO.
+		- for example, if we are testing the logIn method in the
+		  service layer, we want to assume that the DAO is working
+		  as expected, so we just mock the DAO methods we need
+		  (getByUsername in this case) and basically say "if this
+		  method is calling, just return the correct user, because
+		  that's what the DAO would do when working correctly."
+		  THEN, we know that we are only testing what the service
+		  method does with correct DAO behavior. we could also do
+		  the opposite and mock incorrect behavior from the DAO to
+		  make sure that the service layer handles it well, IF that
+		  is something we expect the service layer to do.
