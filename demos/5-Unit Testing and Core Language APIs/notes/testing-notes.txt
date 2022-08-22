@@ -1,0 +1,57 @@
+unit testing
+	- testing is the process of checking to see whether your application's
+	  behavior is as expected
+		- positive testing is making sure your application handles correct inputs
+		- negative testing is making sure your application handles incorrect inputs
+	- unit testing is the bottom of the "testing pyramid" as it is the most abundant
+	  type of testing; it is testing individuals units of functionality
+	- usually in the context of java applications, this refers to testing methods or
+	  small groups of methods
+test driven development
+	- this is the process of writing your tests first to establish what functionality
+	  is desired for the application, then writing your code to pass the tests
+		- usually this requires writing interfaces or empty methods first so that
+		  your tests have unimplemented methods to reference when you're writing
+		  them, then those methods are implemented to be able to pass the tests
+	- this is beneficial primarily because it saves time:
+		- you already have established desired behavior so less changes need to
+		  occur during the development process
+		- you can write less code because you can easily find where problems
+		  arise right away in the process of making them pass tests (rather than
+		  writing all of your code and being unsure where exactly unexpected
+		  behavior is coming from)
+		- establishing behavior first means that your methods actually have to
+		  do the right thing, whereas writing the method first then making a 
+		  test to pass it won't necessarily guarantee that the method actually
+		  does what it's supposed to
+junit
+	- JUnit is a unit testing framework that was created around 2000 and standardized
+	  test driven development (TDD)
+	- it includes many annotations and classes to write automated unit tests
+	- annotations:
+		- @BeforeAll : over a method that runs ONCE before all the tests execute
+		- @BeforeEach : over a method that runs before each test
+		- @AfterEach : over a method that runs after each test
+		- @AfterAll : over a method that runs ONCE after all tests have executed
+		- @Test : over a method that is a test
+		- @DisplayName : allows you to give the test a display name for semantic purposes
+		- @TestMethodOrder() : goes over the class and allows you to set an order
+		  for the tests to run (they are not consistently ordered by default)
+		- @Order(1) : goes with the above annotation if the parameter was
+		  OrderAnnotation.class
+	- assertions
+		- import static org.junit.jupiter.api.Assertions.*; // in JUnit 5
+		- in JUnit 4, the class is Assert
+		- common methods
+			- assertEquals(expected, actual)
+			- assertTrue(actual)
+			- assertFalse(actual)
+			- assertArrayEquals(expected, actual)
+			- assertThrows(expectedException, executable)
+				- the executable is a functional interface so you will
+				  need to write a lambda with the code that you are
+				  expecting to throw an exception
+		- these methods represent what you are actually testing; they will
+		  throw an exception if the assertion is not met (therefore, a JUnit
+		  test fails when it throws an exception UNLESS the exception is one that
+		  is expected through assertThrows, etc. or it is caught in a try-catch)
