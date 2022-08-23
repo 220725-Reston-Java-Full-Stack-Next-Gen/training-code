@@ -15,6 +15,7 @@ public class Main {
 	private static Logger log = Logger.getLogger(Main.class);
 
 	//private UserDao userDao = new UserDaoImpl(); //decoupling = use the methods within the implementation class instead of interface 
+	
 	public static void main(String[] args) {
 		//here I will be showing how we can access our getters/setters using Lombok
 		//1. make a Saiyan object
