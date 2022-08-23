@@ -4,3 +4,25 @@
 2022-08-23 11:01:25 INFO  revature.drivers.Main:47 - Team 7 member info: Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)
 2022-08-23 11:04:47 INFO  revature.drivers.Main:47 - Team 7 member info: Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999)
 2022-08-23 11:04:47 INFO  revature.drivers.Main:47 - Team 7 member info: Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)
+2022-08-23 11:40:15 INFO  revature.drivers.Main:49 - Team 7 member info: Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999)
+2022-08-23 11:40:15 INFO  revature.drivers.Main:49 - Team 7 member info: Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)
+2022-08-23 11:40:15 DEBUG revature.drivers.Main:72 - [Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999), Saiyan(id=4, name=Gohan, planet=Earth, powerLevel=9000), Saiyan(id=5, name=Trunks, planet=Earth, powerLevel=100000), Saiyan(id=6, name=Pan, planet=Earth, powerLevel=1000), Saiyan(id=3, name=Broly, planet=Unknown, powerLevel=100000000)]
+2022-08-23 11:40:53 INFO  revature.drivers.Main:49 - Team 7 member info: Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999)
+2022-08-23 11:40:53 INFO  revature.drivers.Main:49 - Team 7 member info: Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)
+2022-08-23 11:40:53 DEBUG revature.drivers.Main:72 - [Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999), Saiyan(id=4, name=Gohan, planet=Earth, powerLevel=9000), Saiyan(id=5, name=Trunks, planet=Earth, powerLevel=100000), Saiyan(id=6, name=Pan, planet=Earth, powerLevel=1000), Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)]
+2022-08-23 11:46:42 INFO  revature.drivers.Main:50 - Team 7 member info: Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999)
+2022-08-23 11:46:42 INFO  revature.drivers.Main:50 - Team 7 member info: Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)
+2022-08-23 11:46:42 DEBUG revature.drivers.Main:73 - BEFORE: [Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999), Saiyan(id=4, name=Gohan, planet=Earth, powerLevel=9000), Saiyan(id=5, name=Trunks, planet=Earth, powerLevel=100000), Saiyan(id=6, name=Pan, planet=Earth, powerLevel=1000), Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)]
+2022-08-23 11:46:42 DEBUG revature.drivers.Main:78 - AFTER: [Saiyan(id=4, name=Gohan, planet=Earth, powerLevel=9000), Saiyan(id=5, name=Trunks, planet=Earth, powerLevel=100000), Saiyan(id=6, name=Pan, planet=Earth, powerLevel=1000), Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)]
+2022-08-23 11:48:03 INFO  revature.drivers.Main:50 - Team 7 member info: Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999)
+2022-08-23 11:48:03 INFO  revature.drivers.Main:50 - Team 7 member info: Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)
+2022-08-23 11:48:03 DEBUG revature.drivers.Main:73 - BEFORE: [Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999), Saiyan(id=4, name=Gohan, planet=Earth, powerLevel=9000), Saiyan(id=5, name=Trunks, planet=Earth, powerLevel=100000), Saiyan(id=6, name=Pan, planet=Earth, powerLevel=1000), Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)]
+2022-08-23 11:48:03 DEBUG revature.drivers.Main:81 - AFTER: [Saiyan(id=4, name=Gohan, planet=Earth, powerLevel=9000), Saiyan(id=5, name=Trunks, planet=Earth, powerLevel=100000), Saiyan(id=6, name=Pan, planet=Earth, powerLevel=1000)]
+2022-08-23 11:51:21 INFO  revature.drivers.Main:50 - Team 7 member info: Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999)
+2022-08-23 11:51:21 INFO  revature.drivers.Main:50 - Team 7 member info: Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)
+2022-08-23 11:51:21 DEBUG revature.drivers.Main:73 - BEFORE: [Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999), Saiyan(id=4, name=Gohan, planet=Earth, powerLevel=9000), Saiyan(id=5, name=Trunks, planet=Earth, powerLevel=100000), Saiyan(id=6, name=Pan, planet=Earth, powerLevel=1000), Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)]
+2022-08-23 11:51:21 DEBUG revature.drivers.Main:84 - AFTER: [Saiyan(id=4, name=Gohan, planet=Earth, powerLevel=9000), Saiyan(id=6, name=Pan, planet=Earth, powerLevel=1000)]
+2022-08-23 11:54:18 INFO  revature.drivers.Main:50 - Team 7 member info: Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999)
+2022-08-23 11:54:18 INFO  revature.drivers.Main:50 - Team 7 member info: Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)
+2022-08-23 11:54:18 DEBUG revature.drivers.Main:73 - BEFORE: [Saiyan(id=2, name=Vegeta, planet=Planet Vegeta, powerLevel=8999), Saiyan(id=4, name=Gohan, planet=Earth, powerLevel=9000), Saiyan(id=5, name=Trunks, planet=Earth, powerLevel=100000), Saiyan(id=6, name=Pan, planet=Earth, powerLevel=1000), Saiyan(id=1, name=Son Goku, planet=Earth, powerLevel=9001)]
+2022-08-23 11:54:18 DEBUG revature.drivers.Main:92 - AFTER: [Saiyan(id=6, name=Pan, planet=Earth, powerLevel=1000)]

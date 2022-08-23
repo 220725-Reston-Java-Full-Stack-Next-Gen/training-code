@@ -1,6 +1,8 @@
 package com.revature.drivers;
 
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -12,6 +14,7 @@ public class Main {
 	//Azhya forgot the logger becuase she is very sick--my bad
 	private static Logger log = Logger.getLogger(Main.class);
 
+	//private UserDao userDao = new UserDaoImpl(); //decoupling = use the methods within the implementation class instead of interface 
 	public static void main(String[] args) {
 		//here I will be showing how we can access our getters/setters using Lombok
 		//1. make a Saiyan object
@@ -56,6 +59,42 @@ public class Main {
 		System.out.println("AFTER: " + team7); 
 		
 
+		//Now  we will take a look at LinkedLists
+		LinkedList<Saiyan> otherSaiyans = new LinkedList<>();
+		
+		//add some elements to the list
+		otherSaiyans.add(new Saiyan(4, "Gohan", "Earth", 9000));
+		otherSaiyans.add(new Saiyan(5, "Trunks", "Earth", 100000));
+		otherSaiyans.add(new Saiyan(6, "Pan", "Earth", 1000));
+		
+		otherSaiyans.addFirst(vegeta); //addFirst will insert the element at the head of our linkedlist (aka the beginning)
+		otherSaiyans.addLast(goku); //insert at the tail (or end)
+		
+		log.debug("BEFORE: " + otherSaiyans);
+		
+		//just remove the head element from the linkedlist, you must use the removeFirst() method
+		otherSaiyans.removeFirst();
+		
+		//you can do the same with removing the tail element
+		otherSaiyans.removeLast();
+		
+		//how to remove the elements in the middle? by index
+		otherSaiyans.remove(1); //same with arrays, all collections indices start at 0
+		
+		//another way to remove elements in linkedlists
+		for(Saiyan s : otherSaiyans) {
+			if(s.equals(new Saiyan(4, "Gohan", "Earth", 9000))) {
+				//remove him
+				otherSaiyans.remove(new Saiyan(4, "Gohan", "Earth", 9000));
+			}
+		}
+		
+		//Overall, you can remove other elements in a linkedlist by index or by object comparsion
+		//you use linkedlist if you need to keep your elements organized (if order of elements is needed)
+		
+		//do linkedlists allow for duplicates (multiple elements of the same object)? Yes!
+		
+		log.debug("AFTER: " + otherSaiyans);
 	}
 
 }
