@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.azhya</groupId>
+  <artifactId>FakeProject1Scraper</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>FakeProject1Scraper</name>
+  
+  <properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<!-- 1. The javax.servlet dependency This api contains libraries that give 
+			us classes/interfaces that describe and define the contracts of communication 
+			between a servlet class and the runtime environment. The runtime will provide 
+			each instance of a servlet within a conforming web container (aka Tomcat). -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<!-- We will also need a way to convert our Java objects into JSON string 
+			format. So we will be using the Jackson Databind dependency to do this conversion 
+			known as object marshalling -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.9</version>
+		</dependency>
+
+		<!-- PostgreSQL driver -->
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.4.0</version>
+		</dependency>
+		
+		<!-- Log4j for logging! (this is a library) -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- maven war plugin -->
+		<!-- responsible for collecting all artifact dependencies, classes and 
+			resources of the web application and packaging them into our web application 
+			archive (WAR) file -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.1</version>
+			</plugin>
+		</plugins> 
+	</build>
+</project>

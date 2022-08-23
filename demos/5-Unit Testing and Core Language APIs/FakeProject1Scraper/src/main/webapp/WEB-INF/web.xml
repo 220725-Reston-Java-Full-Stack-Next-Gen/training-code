@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://JAVA.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<!-- This web.xml file is known as the deployment descriptor. Its purpose is to map our
+servlets by determining which URI patterns any given request can go to! -->
+
+<!-- Here we are listing our servlet name and the package at which it is located -->
+<servlet>
+	<servlet-name>FrontController</servlet-name>
+	<servlet-class>com.azhya.web.FrontController</servlet-class>
+</servlet>
+
+<!-- Here we are defining the URI patterns that belong to our servlet -->
+<!-- Tomcat will take this list and as request come into the web container, Tomcat will 
+redirect that request to this servlet! -->
+<!-- This is just how we make our endpoints RESTful -->
+<servlet-mapping>
+	<servlet-name>FrontController</servlet-name>
+	<url-pattern>/register</url-pattern>
+	<url-pattern>/login</url-pattern>
+	<url-pattern>/accounts/*</url-pattern>
+	<url-pattern>/users/*</url-pattern> 
+</servlet-mapping>
+</web-app>
