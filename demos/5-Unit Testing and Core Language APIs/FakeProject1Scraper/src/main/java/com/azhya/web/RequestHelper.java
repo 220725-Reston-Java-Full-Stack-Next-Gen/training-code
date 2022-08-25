@@ -295,4 +295,29 @@ public class RequestHelper {
 		
 	}
 
+	public static void processSearchByUsername(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String username = req.getParameter("username");
+		
+		//making the service call
+		User target = userService.getUserByUsername(username);
+		PrintWriter pw = resp.getWriter();
+		ObjectMapper om = new ObjectMapper();
+		
+		if(target != null) {
+			//return a good response
+			resp.setContentType("application/json");
+			resp.setStatus(200);
+			
+			
+			pw.println(om.writeValueAsString(target));
+			LOGGER.info("Search by username complete");
+			
+		}else {
+			//404 - resource not found
+			resp.setStatus(404);
+			pw.println("Sorry, no user by that given username exists.");
+			
+		}
+	}
+
 }

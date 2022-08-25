@@ -39,5 +39,23 @@ public class FrontController extends HttpServlet{
 				break;
 		}
 	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//we use URI rewriting to better manage the naviagation of our HTTP requests as they come to the FrontController
+		final String URI = req.getRequestURI().replace("/FakeProject1Scraper/", "");
+		
+		logger.info("User trying to access endpoint: " + URI);
+		
+		switch(URI) {
+			case "users":
+				logger.info("User is searching by username...");
+				RequestHelper.processSearchByUsername(req, resp);
+				break;
+			default:
+				logger.warn("No path present: " + URI);
+				break;
+		}
+	}
 
 }

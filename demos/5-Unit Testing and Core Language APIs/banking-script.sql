@@ -126,10 +126,13 @@ INSERT INTO bank_transactions (trans_account_id, trans_time_stamp, trans_amount,
 
 /*4. JDBC STATEMENTS*/
 --Think CRUD!!
-select * from users;
+select * from users order by user_id;
 select * from users where user_id = 1;
 select * from users where username = 'aaknox';
 select * from bank_roles;
+select * from account_status;
+select * from account_types;
+select * from accounts;
 
 update users 
 set 
