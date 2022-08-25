@@ -129,4 +129,14 @@ INSERT INTO bank_transactions (trans_account_id, trans_time_stamp, trans_amount,
 select * from users;
 select * from users where user_id = 1;
 select * from users where username = 'aaknox';
-select * from bank_roles br;
+select * from bank_roles;
+
+update users 
+set 
+	username = 'bob', 
+	user_password = 'pass', 
+	user_first_name = 'Ralph', 
+	user_last_name = 'Smith', 
+	user_email = 'email@aol.com', 
+	user_role_type = 'EMPLOYEE' 
+where user_id = 1;

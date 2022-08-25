@@ -54,6 +54,20 @@ public class UserDaoImpl implements UserDao {
 				rs.next();
 			}
 			
+			logger.info("Now updating the bank role for this user...");
+			sql = "INSERT INTO bank_roles (role_id, role_type) VALUES (?, ?)";
+			PreparedStatement ps2 = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			ps2.setInt(1, targetId);
+			ps2.setString(2, "CUSTOMER");
+			ps2.executeUpdate();
+			
+			ResultSet rs2 = ps2.getGeneratedKeys();
+			
+			while(rs2.next()) {
+				user.setRole(new BankRole(rs2.getInt("role_id"), rs2.getString("role_type")));
+				logger.debug("Bank Role: " + user.getRole());
+			}
+			
 		}catch(SQLException e) {
 			logger.warn("Unable to add new user: " + e);
 		}
@@ -101,7 +115,32 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void updateUser(User user) {
-		// TODO Auto-generated method stub
+		logger.info("In UserDaoImpl - updateUser() started. Updated user info: " + user);
+		
+		//1. open my JDBC connection
+		try(Connection conn = JDBCConnectionUtil.getConnection()){
+			//2. Prepare our SQL statement
+			String sql = "update users set username = ?, user_password = ?, user_first_name = ?, user_last_name = ?, user_email = ?, user_role_type = ? where user_id = ?";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, user.getUsername());
+			ps.setString(2, user.getPassword());
+			ps.setString(3, user.getFirstName());
+			ps.setString(4, user.getLastName());
+			ps.setString(5, user.getEmail());
+			ps.setString(6, user.getRole().getRoleType());
+			ps.setInt(7, user.getUserId());
+			
+			//3. Execute that statement
+			int isSuccessfulUpdate = ps.executeUpdate();
+			logger.info("Successful update to DB: 1 FOR YES/0 FOR NO: " + isSuccessfulUpdate);
+			
+		}catch(SQLException e) {
+			logger.warn("Unable to update user: " + e);
+		}
+		
+		//4. ending logging message
+		logger.info("In UserDaoImpl - updateUser() ended.");
 
 	}
 
