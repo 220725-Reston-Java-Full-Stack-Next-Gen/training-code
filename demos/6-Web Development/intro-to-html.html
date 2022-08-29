@@ -1,0 +1,126 @@
+<!-- This is how you make comments in HTML -->
+<!DOCTYPE html> 
+<!-- The DOCTYPE declaration indicates that we are using HTML5. THIS IS NOT A TAG!!!! -->
+<html lang="en">
+<!-- With any given HTML document, it must have the following: DOCTYPE declaration, 
+    html tag, head tags, and the body tags! -->
+
+<!-- The head tag allows us to declare metadata about our HTML document. -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to HTML</title>
+    <!-- We can also see our inclusions of other needed CSS/JS files here -->
+    <!-- This is known as internal CSS styling -->
+    <style>
+        /* this is known as CSS ruleset */
+        /* this is known as a CSS selector - #my-p is! */
+        #my-p{
+            color: blue; /*this is a CSS property that we are setting*/
+        }
+    </style>
+</head>
+<body>
+    <!-- The body tag encloses our webpage's content (aka the user display) -->
+    <!-- Header tags are the first of many HTML tags that can display content -->
+    <h1>First heading</h1>
+    <h2>Second heading</h2>
+    <h3>Third heading</h3>
+    <h4>Fourth heading</h4>
+    <h5>Fifth heading</h5>
+    <h6>Sixth heading</h6>
+
+    <!-- In HTML5, semantic tags were introduced to ease readability for screenreaders. EX. heading, section, caption, main, etc. -->
+    <!-- The heading tag is a special type of div tag -->
+    <heading>
+        <p>This is my first HTML document.</p>
+    </heading>
+
+    <div>
+        <p>This is my second paragraph.</p>
+    </div>
+
+    <!-- HTML tags can also be called HTML elements. An element holds the content. -->
+    <!-- HTML elements can also have attributes. An attribute is used to describe the characterstic of an HTML element in detail.
+    Attributes can be found in the start tag of an HTML element. 
+
+    this is inline styling with CSS
+    <p id="my-p" class="p-masters just-cuz" style="color: blue;">Some content</p>-->
+    <p id="my-p" class="p-masters just-cuz">Some content</p>
+    <p id="my-p">Another</p>
+
+    <!-- The key attributes that you guys will be using are: id and class. These attributes serve as identifiers for your HTML element -->
+    <!-- id = most specific identifier bc each element can have only one ID -->
+    <!-- class = less specific identifier attribute = can use multiple classes for any given HTML element -->
+
+    <!-- Block vs inline elements -->
+    <!-- Block level elements would create a new line of content, stacking on top of one another. Ex. div-->
+    <!-- Inline level elements would stay within the flow of whats surround them, never travelling the next new line without a <br> -->
+    <div>
+        <!-- Span tags are good examples of inline elements -->
+        <span>My little label for my name is: </span><!--<br> this will make it move to the next line-->
+        <span>Azhya Alease Knox</span>
+    </div>
+
+    <!-- Self-closing tags are tags that do not have an end tag. Ex. br, img, input (sometimes), hr -->
+    <img src="https://beta.ctvnews.ca/content/dam/ctvnews/images/2019/11/19/1_4692108.jpg" alt="Cute cat picture">
+
+    <!-- Note, QC will ask you how to make the following:
+    1. HTML Table
+    2. HTML Navbar
+    3. HTML Form 
+
+    Be sure to know that tags needed to complete each item!
+    -->
+    <section id="my-fancy-table">
+        <table>
+            <caption>My Fancy Table</caption>
+            <thead><!-- also known as th tag, holds the table headers -->
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Hobby</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Bob</td>
+                    <td>Building houses</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Susie</td>
+                    <td>Shopping</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Moody</td>
+                    <td>Coding</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="my-navbar">
+        <!-- Navbar usually use Links and Ordered/Unordered list tags -->
+        <ul>
+            <li><a href="http://google.com" target="_blank" rel="noopener noreferrer">Google</a></li>
+            <li><a href="http://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+            <li><a href="http://bing.com" target="_blank" rel="noopener noreferrer">Bing</a></li>
+        </ul>
+    </section>
+
+    <section id="my-test-form">
+        <form>
+            <!-- Forms require us to use input fields and at least one button -->
+            <label for="username-input">Username:</label>
+            <input type="text" id="username-input" placeholder="Please enter username..." required>
+            <label for="password-input">Password:</label>
+            <input type="password" id="password-input" placeholder="Please enter password..." required>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+</body>
+</html>
