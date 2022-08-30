@@ -58,6 +58,7 @@ a{
     color: #d21034;
 }
 
+/* this is an example of a pseduoclass selector. Ex. hover, active, before, after, etc. */
 a:hover{
     color: gray;
 }
