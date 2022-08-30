@@ -7,6 +7,8 @@ With Project 1 out of the way, it's time to work as a part of a larger group to 
 - Social media website
 - A user forum for common fans
 - Online banking application
+- A game website where you can play with others online
+- etc.
 
 ## High-Level Requirements
 
