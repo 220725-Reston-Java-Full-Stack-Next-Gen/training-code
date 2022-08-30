@@ -1,0 +1,67 @@
+body{
+    background-color: #efeee7;
+    font-family:  Georgia,"Times New Roman",Times,serif;
+    color: #333333; /*color = font color*/
+    margin: 0;
+    padding: 0; /*CSS Box Model = looking at the spacing around any given HTML element*/
+    line-height: 1.5;
+}
+/* For common CSS selectors, you would use . to target classes and # to target id and the HTML element name to target all related elements */
+.container{
+    width: 1024px;
+    margin: 0 auto;
+}
+header{
+    background-color: #333333;
+    text-align: center;
+    padding: 2px;
+}
+
+.my-title{
+    color: #eee;
+    font-size: 28px;
+    line-height: 1.5;
+}
+
+/* You can select multiple CSS selectors by separating them with commas at the top of the ruleset */
+h2, p, img, #contact-info{
+    margin-left: 10px;
+}
+
+h2{
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+#main-bio, #contact-info, #bio-image{
+    float: left;
+}
+
+#bio-image{
+    width: 200px;
+    margin-right: 10px;
+}
+
+#main-bio{
+    width: 70%;
+}
+
+p{
+    margin: 15px;
+}
+
+#contact-info{
+    width: 20%;
+}
+
+a{
+    color: #d21034;
+}
+
+a:hover{
+    color: gray;
+}
+
+ul{
+    list-style: none;
+}
