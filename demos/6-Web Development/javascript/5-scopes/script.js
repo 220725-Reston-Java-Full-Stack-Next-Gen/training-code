@@ -5,7 +5,7 @@
     - In JS, there are three scopes:
         1. Global scope = visible anywhere
         2. Function scope = accessible within the function
-        3. Block scope = accessible within a conditional statement or express
+        3. Block scope = accessible within a conditional statement or expression
             - Block also has a special subscope known as lexical scope
                 - Introduced in ES6
                 - In this scope, a variable is defined outside of a function and can be available for use inside of another function despite being declared before the function was created
@@ -19,7 +19,7 @@ console.log(name1 + " is everywhere!");
 
 //lexical scope example
 //use the let keyword
-//let name2 = "John";
+//let name2 = "Fred";
 
 sayHi();
 //function scope example
@@ -54,5 +54,5 @@ function eatLunch(){
 eatLunch();
 
 //Key Takeaway:
-//lexical has the flexibility to go in & out of function scope
 //while function scope is restricted to remain within the scope that it was declared/initialized
+//lexical has the flexibility to go in & out of function scope
