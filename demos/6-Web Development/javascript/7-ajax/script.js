@@ -56,4 +56,45 @@ button.addEventListener('click', () => {
 
             EX. loading scenes while transitioning from one page to another
     */
+    xhr.onreadystatechange = function(){
+        //checking the response status code to see if it return 200
+        //which means an OK response and that everything was processed correctly
+        if(this.readyState == 4 && this.status == 200){
+            let data = JSON.parse(xhr.responseText);
+            console.log(data);
+            //render that response to HTML page
+            renderHTML(data);
+        }
+    };
+
+    //STEP 3: open the request
+    //here for the URL, we are using a template literal to pass in that form's value into the URL path
+    xhr.open("GET", `https://pokeapi.co/api/v2/pokemon/${form}`);
+
+    //STEP 4: send the request
+    xhr.send();
 });
+
+function renderHTML(data){
+    //target the p tag that will hold the response data
+    let responseArea = document.getElementById("input");
+
+    //append all response data to the webpage
+    responseArea.append(`Name: ${data.name}`);
+    responseArea.append(document.createElement("br"));
+
+    responseArea.append(`ID: ${data.id}`);
+    responseArea.append(document.createElement("br"));
+
+    let image = document.createElement("img");
+    //set the attributes to this img element to match the response data
+    image.setAttribute("src", data.sprites.front_default);
+    image.setAttribute("height", "300");
+    image.setAttribute("width", "300");
+    responseArea.append(image);
+    responseArea.append(document.createElement("hr"));
+
+    /*
+        In class exercise: Create another input field that will render information about a pokemon type using AJAX.
+    */
+}
