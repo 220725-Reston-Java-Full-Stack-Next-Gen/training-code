@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DOM Events Example</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    
+    <div id="example">
+        <h1>Bubbling = from child to parent element</h1>
+        <p id="parent-1">
+            Lorem <strong id="child-1">ipsum</strong> dolor sit amet consectetur adipisicing elit. Culpa rerum nesciunt nisi, nostrum eveniet veritatis adipisci exercitationem eos! Culpa natus eum cupiditate dolore nihil sint molestias tenetur nesciunt ipsum accusantium.
+        </p>
+        <button onclick="changeBlue();">Change My Look!</button>
+        <hr>
+
+        <h1>Capturing = from parent to child element</h1>
+        <p id="parent-2">
+            Lorem <strong id="child-2">ipsum</strong> dolor sit amet consectetur adipisicing elit. Culpa rerum nesciunt nisi, nostrum eveniet veritatis adipisci exercitationem eos! Culpa natus eum cupiditate dolore nihil sint molestias tenetur nesciunt ipsum accusantium.
+        </p>
+        <button onclick="changeGreen();">Change My Look!</button>
+        <hr>
+
+        Click on the "ipsum" text to see the example from the console. Click "reset" to clear the console.<br><br>
+        <button onclick="console.clear();">Reset</button>
+    </div>
+    <script src="./bubble-capture.js"></script>
+    <script src="./timed-color-changer.js"></script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+body{
+    background-color: beige;
+    font-family: sans-serif;
+}
+
+strong{
+    color: blue;
+}
+
+/* Pseduoclass selectors in CSS allow us to alter the look of an HTML element based on what special state the selected element is in */
+strong:hover{
+    color: lightgray;
+}
+
+.color-bluegradient, 
+.color-greengradient{
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.color-bluegradient{
+    transition: all .5s ease-in-out;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+.color-greengradient{
+    transition: all .5s ease-in-out;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 121, 25, 1) 35%, rgba(0, 255, 24, 1) 100%);
+}
