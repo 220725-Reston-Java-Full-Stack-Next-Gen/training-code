@@ -1,0 +1,56 @@
+/*
+    - CSS animations can be done using two different properties:
+        1. transition
+        2. animation
+*/
+.parent{
+    background-color: rgb(0, 168, 252);
+    height: 400px;
+    width: 400px;
+}
+
+.child{
+    background-color: red;
+     height: 50%;  /*when using percentages, it will based that number off of the parent HTML element's height & width*/
+     width: 50%;
+     /*
+        transition property like this is shorthand for the following CSS properties:
+
+        1. transition-propterty: what CSS property are we altering (ex. transform, background-color, color, etc.
+        2. transition-duration: how long do I want this transition to take (ex. 1s, 100ms, etc.)
+        3. transition-timing-function: controls how fast/slow you move from your starting position to your ending position in the transition
+        4. transition-delay: how long would I want to wait before my transition starts
+     */
+     transition: transform 1s ease-in-out 3s;
+     /*transition: transform 1s cubic-bezier(0.4, 0, 1, 2.49) 3s; we would want to apply the transition not at the place where the action is happening, but on the root HTML element that will be performing that transition*/
+     animation: left-to-right 1s ease-in-out forwards infinite alternate;
+}
+
+.parent:hover .child{
+    transform: translateX(100%); /*this will move across from left to right for the child*/
+    animation-play-state: paused;
+}
+
+/*
+    To make your own animations, you must use @keyframes to control how the animations moves from one state to the next.
+*/
+
+@keyframes left-to-right{
+    0%{
+        transform: translateX(0);
+    }
+
+    33%{
+        transform: translateY(100%);
+    }
+
+    66%{
+        background-color: yellow;
+        transform: translateX(100%) translateY(100%);
+    }
+
+    100%{
+        background-color: green;
+        transform: translateX(100%);
+    }
+}

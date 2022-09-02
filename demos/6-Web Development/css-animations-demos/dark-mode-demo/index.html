@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Awesome Website | Welcome Page</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- A CDN (content delivery network) allows us to bring in external CSS/JS libraries that will ease the development of our webpages. The CDNs in this project are:
+        1. Bootstrap for responsive web pages as we change media devices
+        2. FontAwesome = icon library that allows us to include nice looking icons on our pages
+        3. Animate.style = animation library that provides custom animations that are ready out-of-the-box for us to use on our websites
+    -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/b825c1b0e8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <div class="sidenav">
+        <div class="login-main-text">
+            <h2>Welcome to My Site</h2>
+            <p>Login or register from here to access.</p>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+                <form>
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input type="text" class="form-control" placeholder="User Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-black">Login</button>
+                    <button type="submit" class="btn btn-secondary">Register</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="dark-mode-toggle">
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <div class="ball"></div>
+            </label>
+        </div>
+    </div>
+    <script src="./dark-mode.js"></script>
+</body>
+</html>

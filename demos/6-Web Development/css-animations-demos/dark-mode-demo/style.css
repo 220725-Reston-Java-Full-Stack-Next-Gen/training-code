@@ -1,0 +1,153 @@
+body{
+    font-family: "Lato", sans-serif;
+    transition: background 0.2s linear;
+}
+
+/*This will be the rulesets for when a user wants to apply dark mode */
+body.dark{
+    background-color: #1a1c32;
+    color: #f4f4f6;
+}
+
+.sidenav.dark{
+    background-color: #f4f4f6;
+}
+
+.login-main-text.dark{
+    color: #1766b8;
+}
+
+.btn-black.dark{
+    background-color: #6DB6BF !important;
+}
+
+.btn-secondary.dark{
+    background-color: #78667c !important;
+}
+
+/*position the dark mode toggle to go in the top right corner of my page*/
+.dark-mode-toggle{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.main-head{
+    height: 150px;
+    background: #f4f4f6;
+}
+
+.sidenav{
+    height: 100%;
+    background-color: #1766b8;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.main{
+    padding: 0px 10px;
+}
+
+/*
+    Anytime that you want to set some CSS properties based on a media device's dimensions, you would use media breakpoints.
+*/
+
+@media screen and (max-height: 450px){
+    .sidenav{
+        padding-top: 15px;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%;
+        margin-top: -90px;
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 80%;
+        /*here I will be using the Animate.style libraries custom animation*/
+        animation: fadeInDown;
+        animation-duration: 4s;
+    }
+
+    .register-form{
+        margin-top: 20%;
+    }
+}
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #f4f4f6;
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    /*!important will override whatever styling was applied to that element prior*/
+    background-color: #1a1c32 !important;
+    color: #f4f4f6;
+}
+
+.checkbox{
+    opacity: 0;
+    position: absolute;
+}
+
+.label{
+    width: 50px;
+    height: 26px;
+    background-color: #111;
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    transform: scale(1.5);
+}
+
+.ball{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+/* targeting the element after the label*/
+.checkbox:checked + .label .ball{
+    transform: translateX(24px);
+}
+
+.fa-moon{
+    color: pink;
+}
+
+.fa-sun{
+    color: yellow;
+}
