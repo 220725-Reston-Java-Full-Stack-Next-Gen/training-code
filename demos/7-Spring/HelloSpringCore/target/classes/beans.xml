@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This namespace holds the metadata needed by our IoC container to know how to manage spring beans -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- NOTE: this file serves as the IoC container for this application. Here, Spring utilizes this idea of an IoC container to know how and what is a spring bean in my application along with knowing how to configure the bean's dependencies. -->
+
+	<!-- In order to make a class as a spring bean, we must do the following: -->
+	<bean name="pokemonDao" class="com.revature.dao.PokemonDaoImpl"></bean>
+	
+	<!-- However, some beans do require some dependency injection (aka it rely on another class to have some operational functionality. This is where we can manually define the dependency injection in the IoC container: -->
+	<!-- 1. constructor injection = the dependency is instantiated upon its dependent's creation/instantiation in our code -->
+	<bean name="pokemonService" class="com.revature.service.PokemonServiceImpl">
+		<!-- index = position in the arguments of that constructor -->
+		<!-- ref = what dependent bean is being injected into that constructor -->
+		<constructor-arg index="0" ref="pokemonDao"></constructor-arg>
+	</bean>
+</beans>
