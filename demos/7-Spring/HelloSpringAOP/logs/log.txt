@@ -1,0 +1,7 @@
+2022-09-07 16:23:38 INFO  revature.aspects.LoggingAspect:47 - Around advice for: [ com.revature.services.AnimeServiceImpl : getAllAnimeShows ]
+2022-09-07 16:23:38 INFO  revature.aspects.LoggingAspect:28 - Before advice for: [ com.revature.services.AnimeServiceImpl : getAllAnimeShows ]
+2022-09-07 16:23:38 INFO  revature.aspects.LoggingAspect:28 - Before advice for: [ com.revature.repos.AnimeDaoImpl : selectAll ]
+2022-09-07 16:23:38 INFO  revature.aspects.LoggingAspect:37 - After advice for: [ com.revature.repos.AnimeDaoImpl : selectAll ]
+2022-09-07 16:23:38 INFO  revature.aspects.LoggingAspect:37 - After advice for: [ com.revature.services.AnimeServiceImpl : getAllAnimeShows ]
+2022-09-07 16:23:38 INFO  revature.aspects.LoggingAspect:54 - Results of this method invoking/proceeding is: [Anime(id=1, title=Dragon Ball Z, mainCharacterName=Son Goku), Anime(id=2, title=One Piece, mainCharacterName=Monkey D. Luffy), Anime(id=3, title=Hunter x Hunter, mainCharacterName=Gon Freecss)]
+2022-09-07 16:23:38 INFO  revature.aspects.LoggingAspect:60 - End of Around Advice
