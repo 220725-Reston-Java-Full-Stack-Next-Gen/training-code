@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This namespace holds the metadata needed by our IoC container to know 
+	how to manage spring beans -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- annotation-based bean configuration = here we will tell spring ioc container what packages to scan for its beans. The beans themselves will be marked by @Component (or any of the other sterotype annotations)-->
+<!-- So to turn on component scanning in the IoC container, we must provide the following XML tags: -->
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.revature.services" />
+	<context:component-scan base-package="com.revature.daos" />
+</beans>
