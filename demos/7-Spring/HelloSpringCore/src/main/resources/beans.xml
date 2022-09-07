@@ -13,9 +13,22 @@
 	
 	<!-- However, some beans do require some dependency injection (aka it rely on another class to have some operational functionality. This is where we can manually define the dependency injection in the IoC container: -->
 	<!-- 1. constructor injection = the dependency is instantiated upon its dependent's creation/instantiation in our code -->
-	<bean name="pokemonService" class="com.revature.service.PokemonServiceImpl">
-		<!-- index = position in the arguments of that constructor -->
-		<!-- ref = what dependent bean is being injected into that constructor -->
+	<!-- <bean name="pokemonService" class="com.revature.service.PokemonServiceImpl">
+		index = position in the arguments of that constructor
+		ref = what dependent bean is being injected into that constructor
 		<constructor-arg index="0" ref="pokemonDao"></constructor-arg>
+	</bean> -->
+	
+	<!-- 2. setter injection = uses an object's setter method to injected its dependencies -->
+	<bean name="pokemonService" class="com.revature.service.PokemonServiceImpl">
+		<!-- here, the name attribute is a uniquely set name provided by the dev, while the ref attribute points to the dependent bean's name attribute -->
+		<property name="pokeDao" ref="pokemonDao"></property>
 	</bean>
+	
+	<!-- The process of the IoC container managing our beans is commonly known as bean wiring. 
+		There are 2 ways to wire your beans:
+		1. XML configuration
+		2. Annotation configuration
+			- anytime that you use the @Autowired annotation, that is a special type of annotation-based configuration of bean wiring.
+	-->
 </beans>

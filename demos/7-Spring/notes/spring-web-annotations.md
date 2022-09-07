@@ -1,0 +1,15 @@
+# Spring Web Annotations
+- `@Controller`: specifies a class as a controller, which is a special bean used to handle web application requests
+- `@ResponseBody`: converts a Java object that we are returning from a controller method into JSON
+- `@ResponseStatus`: used to mark a method with an HTTP response status code
+- `@PathVariable`: Used to bind "path parameters" `ex: /users/{id}` where id is the path parameter, to a variable in the method parameters
+- `@RequestParam`: used to bind "query parameters" `ex: ?amountLessThan=2000` to a variable in the method parameters (or form-data)
+- `@RequestBody`: allows Spring to map JSON from the body of a request into a Java Object
+- `@RestController`: the same as `@Controller`, but automatically adds `@ResponseBody` to each return type in the controller methods
+- Request Mappings
+    - `@RequestMapping`
+    - `@GetMapping`
+    - `@PostMapping`
+    - `@PutMapping`
+    - `@DeleteMapping`
+    - `@PatchMapping`
