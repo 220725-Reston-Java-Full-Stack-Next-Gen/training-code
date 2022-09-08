@@ -31,7 +31,7 @@ public class HeroServiceImpl implements HeroService{
 
 	@Override
 	public Hero getHeroByName(String name) {
-		return heroRepo.findByName(name);
+		return (Hero) heroRepo.findByName(name);
 	}
 
 }

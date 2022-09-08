@@ -33,6 +33,7 @@ public class HeroRepositoryImpl implements HeroRepository {
 		return sessionFactory.getCurrentSession().createCriteria(Hero.class).list();
 	}
 
+	
 	@Override
 	public Hero findByName(String name) {
 		return (Hero) sessionFactory.getCurrentSession().createCriteria(Hero.class).add(Restrictions.like("name", name)).list().get(0);
