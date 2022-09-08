@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+	<!-- The Application Context is used to set up our IoC container -->
+	<!-- IoC = inversion of control = means that Spring creates the dependencies 
+		that other objects rely on, rather than the objects instantiate the dependencies 
+		by themselves -->
+
+	<!-- Tell Spring to scan our application for components that use the @Repository 
+		and @Transactional annotations -->
+	<tx:annotation-driven />
+
+	<!-- We want to tell Spring to read through our application and configure 
+		the @Controller components properly -->
+	<mvc:annotation-driven />
+	
+	<!-- now we can set up the component scanning for base packages in our app -->
+	<context:component-scan base-package="com.revature.repository" />
+	<context:component-scan base-package="com.revature.service" />
+	<context:component-scan base-package="com.revature.controller" />
+	
+	<!-- Now I will be doing the setup needed for Spring ORM -->
+	<!-- 1. Datasource bean = holds our JDBC credentials in it -->
+	<!-- NOTE: this is why you would need to add the applicationContext.xml as part of your .gitignore file as you would NOT want to expose your personal info on the internet! -->
+	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver"></property>
+		<!-- This would be your database credentials -->
+		<property name="url" value="jdbc:posgresql://localhost:5432/postgres"></property>
+		<property name="username" value="postgres"></property>
+		<property name="password" value="postgres"></property>
+	</bean>
+
+	<!-- 2. SessionFactory bean = works with Hibernate to manage transactions as they occur during runtime -->
+	<bean name="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- we are wiring our datasource bean into this sessionfactory bean because the sessionfactory depends on a data source of some type -->
+		<property name="dataSource" ref="dataSource" />
+		
+		<!-- annotation mapping that will be needed for JPA/Hibernate to work -->
+		<property name="packagesToScan" value="com.revature.model"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+				<prop key="show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 3. transaction manager bean = this will make all sessions capable of doing a transaction -->
+	<bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<!-- Because the TransactionManager depends on the sessionfactory bean to work, we must put it down as a dependency thru this property below: -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+</beans>

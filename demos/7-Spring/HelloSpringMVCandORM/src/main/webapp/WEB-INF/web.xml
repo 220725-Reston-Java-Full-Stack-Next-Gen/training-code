@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://Java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<!-- This is the display for the domain that my application will be hosted from (normally the part of your URL after localhost:8080)-->
+	<display-name>HelloSpringMVCandORM</display-name>
+	
+	<!-- For if I want to set a default welcome page for when the app starts up, we can set that up here like this:  -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<!-- We need to refers to our IoC container as we will be incorporate Spring beans as we use this web app -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	
+	<!-- The listener class allows for our web app to actively manage our beans during runtime -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- Now we can define what URI patterns to look out for by setting up our dispatcher servlet mapping here: -->
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/register</url-pattern>
+		<url-pattern>/findAllHeroes</url-pattern>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+</web-app>
