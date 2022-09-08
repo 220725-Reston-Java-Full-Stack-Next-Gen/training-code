@@ -14,42 +14,48 @@
 	</properties>
 	
 	<dependencies>
-		<!-- Spring MVC -->
+		<!-- Spring 4 MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.3.9.RELEASE</version>
 		</dependency>
-		
-		<!-- Spring ORM -->
+
+		<!-- Log4j -->
+		<!-- <dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency> -->
+
+		<!-- Spring 4 ORM -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>4.3.9.RELEASE</version>
 		</dependency>
-		
-		<!-- In order for Spring ORM to work properly, we will also need the dependency for Hibernate here -->
+
+		<!-- Hibernate 4 -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>4.3.11.Final</version>
 		</dependency>
-		
-		<!-- In order for Spring MVC to work properly, we will also need the dependency for servlets here -->
+		<!-- Servlet (To run without targeted runtime) -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 		</dependency>
-		
-		<!-- With any type of data persistence tool, we will need the PostgreSQL driver to let Spring ORM know that we are using this type of SQL dialect in our code -->
+
+		<!-- postgresql driver -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.2.9</version>
 		</dependency>
-		
-		<!-- We will also need a way to convert our Java objects into JSON and vice versa. Thus, we need Jackson Databind -->
+
+		<!-- Jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>

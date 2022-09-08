@@ -21,12 +21,13 @@
 	
 	<!-- Now we can define what URI patterns to look out for by setting up our dispatcher servlet mapping here: -->
 	<servlet>
-		<servlet-name>dispatcher</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<url-pattern>/register</url-pattern>
-		<url-pattern>/findAllHeroes</url-pattern>
-		<url-pattern>/*</url-pattern>
-	</servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>/register</url-pattern>
+    <url-pattern>/findAllHeroes</url-pattern>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
 </web-app>
