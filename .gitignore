@@ -25,3 +25,5 @@ hs_err_pid*
 
 .DS_Store
 .project
+demos/8-Angular/dbz-angular-demo/dbz-app/src/environments/environment.prod.ts
+demos/8-Angular/dbz-angular-demo/dbz-app/src/environments/environment.ts
