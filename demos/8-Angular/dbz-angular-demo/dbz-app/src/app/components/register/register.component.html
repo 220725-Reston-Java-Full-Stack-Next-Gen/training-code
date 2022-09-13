@@ -1,0 +1,74 @@
+<!-- A component is the most basic building block for an Angular app. This represents a portion of a user interface that consist of the following files:
+    1. HTML template = the view the user sees
+    2. CSS stylesheet = the stylings of the visuals for the component
+    3. TS file = the logic associated with that componenet (the logic can be using data binding or injecting of other components)
+    4. Spec file = used for Behavior-Driven Development (BDD) = unit testing on your user interface to make sure the site behaves as expected
+
+    Q: Is a component a directive?
+    - Components are directives.
+    - Since directives are used to add behavior to an existing HTMLElement, components are therefore a special type of directive. They are used differently however because components also have their own template.
+-->
+<ng-container class="text-center center">
+    <h4 class="main-title text-center">Register Now!</h4>
+    <p class="desc text-center">Please provide your information below.</p>
+    <form class="text-center center">
+        <div class="form-row">
+            <div class="form-group col-md-12 mb-2">
+                <label for="inputUsername">Username</label>
+                <!-- Here, this is an example of two-way data binding -->
+                <!-- Data binding is the syncing of information between your view (aka HTML) and your model (TS files) -->
+                <!-- So anytime there is a change in the data for this model (aka User information coming this form), Angular will reflect the change and updated the view almost instantly -->
+                <!-- There are two ways to do data binding in Angular:
+                    1. one-way
+                        - Interpolation {{expression-you-want-here}}
+                        - Property = binding the information from the model to the view = set attributes on HTMLElement by using [property]
+                        - Event = same uni-directional = from view to model = allows us to define events that occur in the template and communicate to the component class (TS file) = uses (event)
+
+                    2. two-way = from model to view and vice versa = combines by banana-boat syntax: [(ngModel)]
+                -->
+                <input [(ngModel)]="user.username" type="text" name="username" class="form-control center" id="inputUsername" required>
+            </div>
+            <div class="form-group col-md-12 mb-5">
+                <label for="inputPassword">Password</label>
+                <input [(ngModel)]="user.password" type="password" name="password" class="form-control center" id="inputPassword" required>
+            </div>
+            <div class="form-group col-md-12 mb-2">
+                <label for="inputFirstName">First Name</label>
+                <input [(ngModel)]="user.firstname" type="text" name="name" class="form-control center" id="inputFirstName" required>
+            </div>
+            <div class="form-group col-md-12 mb-2">
+                <label for="inputLastName">Last Name</label>
+                <input [(ngModel)]="user.lastname" type="text" name="text" class="form-control center" id="inputLastName" required>
+            </div>
+            <div class="form-group col-md-12 mb-2">
+                <label for="inputEmail">Email</label>
+                <input [(ngModel)]="user.email" type="text" name="text" class="form-control center" id="inputEmail" required>
+            </div>
+        </div>
+        <button (click)="register($event)" class="btn btn-primary register-btn">Finish Registration</button>
+    </form>
+    <!-- ngIf is most common example of a structural directive.
+        - conditionally render this portion of my template based on the value of that expression in my component class
+
+        - Other examples of structural directives: ngFor, ngSwitch, etc. Overall, structural directives change how the HTML template looks in structure
+
+        There are also attribute directives. They change the appearence/behavior of the HTML elements
+
+        Common example of attribute directives:
+        ngStyle, ngClass, etc.
+
+        Notice: to define a directive in our HTML template, we would start the directive with an asterisk (*)
+    -->
+    <ng-container *ngIf="isRegistered;">
+        <div>
+            <p class="color-green">You have successfully made a new account! Redirecting back to the front page...</p>
+        </div>
+    </ng-container> 
+    
+    <br><br><br>
+    <footer id="register-section" class="fixed-bottom">
+        <div class="text-center center">
+            <p>Already have an account? <a routerLink="../login">Log in here</a>!</p>
+        </div>
+    </footer>
+</ng-container>

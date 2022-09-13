@@ -8,5 +8,6 @@ if (environment.production) {
   enableProdMode();
 }
 
+//this is how angular couples our app files together to render to the browser
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

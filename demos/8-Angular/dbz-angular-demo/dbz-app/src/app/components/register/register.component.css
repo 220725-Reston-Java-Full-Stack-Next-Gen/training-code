@@ -1,0 +1,36 @@
+.center {
+    display: flex;
+    justify-content: center;
+  	align-items: center;
+    flex-direction: column;
+    margin: auto;
+    padding: auto;
+    vertical-align: middle;
+  }
+
+  footer{
+      color: white;
+  }
+  a{
+      color: grey;
+      transition: all .5 ease-in-out;
+      text-decoration: none;
+  }
+
+  a:hover{
+      color: gainsboro;
+  }
+
+  .register-btn{
+    margin-bottom: 20px;
+  }
+
+  label{
+    font-size: 0.8rem !important;
+    margin: 0 !important;
+  }
+
+  .form-control{
+    width: 50% !important;
+  }
+  
