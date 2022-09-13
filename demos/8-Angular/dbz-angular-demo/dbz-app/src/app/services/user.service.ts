@@ -1,4 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { User } from '../models/user';
+import { HttpClient } from '@angular/common/http';
+import { ClientMessage } from '../models/client-message';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +21,40 @@ export class UserService {
     - Observables are like Promises!
   */
 
-  constructor() { }
+  //1. declare your variables
+  isAuthenicated: boolean = false;
+  user$!: User; //because of this value possibly being null during runtime, I'm flagging this variable with the definite assertion syntax($ and/or !)
+  url: string = environment.APP_URL;
+
+  //2. inject our service with needed dependencies via constructor injection
+  constructor(private http: HttpClient, private router: Router) { }
+
+  //3. define and implement our methods that we need
+  //a. authenication methods
+  getAuthStatus(): boolean{
+    if(this.isAuthenicated){
+      console.log('Access granted for this user');
+    }else{
+      console.log('Access denied. Please log in.');
+    }
+
+    return this.isAuthenicated;
+  }
+
+  register(user: User): void{
+    //a. set up my JSON data that is coming from the form
+    let body = {
+      username: user.username,
+      password: user.password,
+      firstName: user.firstname,
+      lastName: user.lastname,
+      email: user.email
+    };
+
+    //b. make a POST request call to our server
+    this.http.post<ClientMessage>(`${this.url}users/register`, JSON.stringify(body))
+    .subscribe(data => {
+      console.log(data);
+    })
+  }
 }
