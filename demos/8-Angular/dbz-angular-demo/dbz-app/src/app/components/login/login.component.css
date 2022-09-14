@@ -1,0 +1,60 @@
+.center-screen {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+.main-title{
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    font-family: "Roboto", sans-serif !important;
+}
+
+.desc{
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+    line-height: 2;
+}
+
+.login-btn {
+    margin-top: 5px;
+    font-size: 1rem;
+    font-family: 'Roboto';
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    background-color: #FF3F0F;
+    color: white;
+    border: none;
+    border-radius: 10px;
+   /* transition: 0.4s ease-in-out;
+    animation: fadeInUp;
+    /* referring directly to the animation's @keyframe declaration */
+    /*animation-duration: 3s;
+    /* don't forget to set a duration! */
+}
+
+.login-btn:hover{
+    opacity: 0.8;
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+
+.form-control{
+    width: 50% !important;
+}
+
+.info-card{
+    font-size: 1.25rem;
+}
+
+/* .login-screen{
+    display: none !important;
+} */
