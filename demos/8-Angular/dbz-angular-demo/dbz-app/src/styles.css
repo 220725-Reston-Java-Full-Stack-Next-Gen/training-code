@@ -30,5 +30,5 @@ body {
 body {
   -webkit-font-smoothing: none;
   font-family: 'Roboto', sans-serif;
-  overflow-y: hidden !important;
+  overflow: hidden !important;
 }
