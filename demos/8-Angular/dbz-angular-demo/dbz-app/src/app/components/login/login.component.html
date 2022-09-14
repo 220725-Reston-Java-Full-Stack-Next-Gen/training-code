@@ -1,12 +1,11 @@
-<div class="container text-center login-screen" style="display: none;">
+<div class="container text-center login-screen" style="display: none;" id="login-container">
     <!-- ng-container is a specialized Angular Bootstrap container that allows us to perform logical operations within the template -->
     <!-- ngIf will allow us to check if a value within our component class equates to either true/false-->
     <!-- if true, this container will show, false = no container will render to the page -->
     <!-- Q: What is a pipe in Angular? -->
     <!-- Pipes are used to format data from one format to the next. Pipes are able to do this by changing how the data is displayed and can be seen with the long-bar syntax ( aka '|') -->
     <!-- Angular does have built-in pipes like uppercasepipe, lowercasepipe, currencypipe. But we also have the ability to make custom pipes in Angular by running 'ng generate pipe <your-pipe-name>' in Angular CLI -->
-    
-    <ng-container class="logout-screen" id="logout-btn" *ngIf="(isAuthenticated$ | async ) === false else loggedOut">
+    <ng-container class="logout-screen" *ngIf="(isAuthenticated$ | async ) === false else loggedOut">
         <!-- Event binding = binds the event that the user triggers and performs operations that are then listed in the component class = from the view to the model -->
         <button class="login-btn" (click)="logout()">Log Out</button>
     </ng-container>

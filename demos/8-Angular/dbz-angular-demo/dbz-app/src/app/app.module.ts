@@ -10,7 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CorsInterceptorService } from './services/cors-interceptor.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import { MdbModalModule } from 'mdb-angular-ui-kit';
+//import { MdbModalModule } from 'mdb-angular-ui-kit';
 
 //This module is responsible for grouping together all of the components in the app and imports all additional modules needed for the app
 @NgModule({
@@ -25,7 +25,7 @@ import { MdbModalModule } from 'mdb-angular-ui-kit';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    MdbModalModule
+    //MdbModalModule
   ],
   //here is where we would provide the interceptors needed for the app
   providers: [

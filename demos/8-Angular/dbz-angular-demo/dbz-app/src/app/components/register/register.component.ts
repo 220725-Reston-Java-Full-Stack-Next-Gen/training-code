@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   //3. a method that will trigger with a click event for our form
   register(event: any){
     //here Angular forms will actively retrieve the form data based on our two-way binding back in our HTML template
-    console.log("Form data: " + this.user)
+    console.log("Form data: " + JSON.stringify(this.user));
 
     //check if I have all of the form data
     
