@@ -57,4 +57,54 @@ export class UserService {
       console.log(data);
     })
   }
+
+  login(username: string, password: string): boolean {
+    //1. print the username/password to the console
+    console.log(`In UserService - login() - has started with info: username=${username}, password=${password}`);
+
+    //2. set up our request body by making a temp TS object
+    let body = {
+      username: username,
+      password: password
+    };
+
+    console.log(`Body: ${body}`);
+
+    //3. perform our HttpClient request calls here
+    this.http.post<ClientMessage>(`${this.url}users/login`, JSON.stringify(body))
+    .subscribe(data => {
+      console.log(`Backend data: ${data}`);
+
+      //pass isAuthenticated to true
+      this.isAuthenicated = true;
+      console.log(`Is user authenticated: ${this.isAuthenicated}`);
+    });
+
+    this.http.get<User>(`${this.url}users/find-by-username?username=${username}`)
+    .subscribe(user => {
+      console.log(`Found user: ${user}`);
+      //set a localStorage variable to keep up with our loggedIn user
+      localStorage.setItem("current-user", JSON.stringify(user));
+
+      console.log("Log in successful. Current-User: " + localStorage.getItem("current-user"));
+    });
+
+    //4. navigate the user to the homepage
+    this.router.navigateByUrl('/home');
+
+    //5. print end-of-task message
+    console.log(`Login() finished. Authenticated: ${this.isAuthenicated}`)
+    return this.isAuthenicated;
+  }
+
+  logout(): void{
+    //clear all of the localStorage keys
+    localStorage.clear();
+    
+    //set the isAuthenticated variable to false
+    this.isAuthenicated = false;
+
+    //navigate the user back to the login page
+    this.router.navigateByUrl('/login');
+  }
 }
