@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import '~animate.css/animate.min';
+
+app-home,
+app-return-home-button{
+  overflow: hidden !important;
+}
+
+app-home:not(){
+  overflow: scroll !important;
+}
+/* 
+.login-screen{
+  display: none !important;
+} */
+
+html,
+body {
+  height: 100%;
+  color: whitesmoke;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#471b1c+0,ab3a12+50,febd78+100 */
+  background: #000; /* Old browsers #165E9C */
+  background: -moz-linear-gradient(left,  #000 0%, #165E9C 30%, #F1DF35 80%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  #000 0%,#165E9C 30%,#F1DF35 80%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  #000 0%,#165E9C 30%,#F1DF35 80%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000', endColorstr='#F1DF35',GradientType=1 ); /* IE6-9 */
+}
+
+body {
+  -webkit-font-smoothing: none;
+  font-family: 'Roboto', sans-serif;
+  overflow-y: hidden !important;
+}
