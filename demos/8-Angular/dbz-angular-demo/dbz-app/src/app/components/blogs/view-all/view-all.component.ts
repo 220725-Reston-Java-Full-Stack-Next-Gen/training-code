@@ -24,6 +24,12 @@ export class ViewAllComponent implements OnInit {
     this.service.getCurrentUser();
     this.getAllBlogs();
   }
+
+  //this trackItem is needed in order for changeDetect class to know where to apply the changes
+  public trackItem(index: number, item: Blog){
+    return `${item.id}-${index}`;
+  }
+
   getAllBlogs() {
     //1. subscribe to the observable that returns from the service call
     this.service.getAllBlogs().subscribe(

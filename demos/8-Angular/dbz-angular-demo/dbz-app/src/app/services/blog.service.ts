@@ -16,15 +16,13 @@ export class BlogService {
   constructor(private http: HttpClient) { }
 
   getCurrentUser(): void{
-    let username = localStorage.getItem("current-user");
-    console.log(username);
-    this.http.get<User>(`${this.url}users/find-by-username?username=${username}`)
+    let user = JSON.parse(localStorage.getItem("current-user"));
+    console.log(user);
+    this.http.get<User>(`${this.url}users/find-by-username?username=${user.username}`)
     .subscribe(data => {
           console.log(data);
-          localStorage.setItem("user-info", JSON.stringify(data));
-        }
-        );
-        console.log("Final info data: " + localStorage.getItem("user-info"));
+      }
+    );
   }
 
   createNewBlog(blog: Blog): void{
