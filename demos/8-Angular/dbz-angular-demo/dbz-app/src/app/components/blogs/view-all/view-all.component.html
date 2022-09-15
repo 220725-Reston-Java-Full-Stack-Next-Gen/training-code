@@ -1,1 +1,35 @@
-<p>view-all works!</p>
+<app-navbar></app-navbar>
+<div class="container" id="opening-container center-screen">
+  <div class="row text-center align-items-center" style="margin-top: -80px;">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 gauche left-side">
+        <h3>All Posts</h3>
+        <div class="table-responsive wizard-table" aria-describedby="table-desciption">
+            <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Body</th>
+                <th scope="col">Categories</th>
+              </tr>
+            </thead>
+            <tbody id="blog-content">
+              <tr *ngFor="let blog of blogs; trackBy: trackItem" id="data-row">
+                <th class="text-white">{{ blog.id }}</th>
+                <td class="text-white">{{ blog.title }}</td>
+                <td class="text-white">{{ blog.subject }}</td>
+                <td class="text-white">{{ blog.body }}</td>
+                <td class="text-white">{{ blog.categories }}</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+<footer class="my-cr margin-bottom text-center fixed-bottom">
+  <span>&copy;2022 by Azhya A. Knox</span>
+</footer>
