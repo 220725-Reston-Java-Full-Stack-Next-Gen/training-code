@@ -1,0 +1,32 @@
+.main-title {
+    font-size: 4rem;
+    letter-spacing: 2px;
+    font-family: "Roboto", sans-serif !important;
+  }
+  
+  .intro {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-family: monospace;
+    line-height: 2;
+  }
+  
+  .my-cr {
+    letter-spacing: 5px;
+    font-family: monospace;
+    color: white;
+    opacity: 0.5;
+    font-size: 0.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .left-side,
+  .right-side {
+    margin-top: 25vh;
+  }
+  
+  .main-img {
+    width: 400px;
+    height: 350px;
+    object-fit: contain;
+  }

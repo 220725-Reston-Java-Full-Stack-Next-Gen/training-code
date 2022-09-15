@@ -1,0 +1,11 @@
+*{
+    background-color: #072083 !important;
+}
+
+.desc{
+    font-size: 0.75rem;
+}
+
+input, textarea{
+    color: white !important;
+}

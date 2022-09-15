@@ -1,1 +1,41 @@
-<p>create works!</p>
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Create a New Blog</h5>
+    <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modalRef.close()"
+    ></button>
+    </div>
+    <div class="modal-body">
+        <form class="text-center center color-white">
+            <i class="desc">Please be careful to click within the form to keep this window open. Click anywhere outside the pane to exit or click Close.</i>
+            <br><br>
+            <div class="form-row">
+                <div class="form-group col-md-12 mb-2">
+                    <label for="inputUsername">Title</label>
+                    <input [(ngModel)]="blog.title" type="text" name="title" class="form-control center color-white" id="inputUsername" required>
+                </div>
+                <div class="form-group col-md-12 mb-5">
+                    <label for="inputPassword">Subject</label>
+                    <input [(ngModel)]="blog.subject" type="text" name="subject" class="form-control center" id="inputPassword" required>
+                </div>
+                <div class="form-group col-md-12 mb-2">
+                    <label for="inputBody">What's on your mind?</label>
+                    <textarea [(ngModel)]="blog.body" name="inputBody" class="form-control center" id="inputBody" rows="5" required></textarea>
+                </div>
+                <div class="form-group col-md-12 mb-2">
+                    <label for="inputCategories">Categories</label>
+                    <br>
+                    <i class="desc">Please separate categories with commas (,)</i>
+                    <input [(ngModel)]="blog.categories" type="text" name="text" class="form-control center" id="inputCategories " required>
+                </div>
+            </div>
+            <button (click)="createPost($event)" class="btn btn-primary register-btn">Submit</button>
+        </form>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+        Close
+    </button>
+</div>
