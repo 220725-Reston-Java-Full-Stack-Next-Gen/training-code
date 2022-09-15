@@ -1,0 +1,60 @@
+<div class="bar-bg">
+    <nav class="navbar navbar-light light-blue lighten-4 justify-content-end">
+        <!-- 1. a small section that will display the loggedIn User's username -->
+        <span class="user-info" *ngIf="currentUserName">
+            Hi, {{currentUserName}}
+        </span>
+
+        <!-- 2. Collapsible menu button -->
+        <button 
+            class="navbar-toggler toggler-example menu-toggle-btn"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent1"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed"
+        >
+            <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
+        </button>
+
+        <!-- 3. Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1" [ngbCollapse]="isCollapsed">
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto menu-options-div animate__animated animate__fadeInLeftBig">
+              <li class="nav-item">
+                  <a class="nav-link text-white">Menu</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" routerLink="/home">Home<span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/about">About DBZ API</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/blogs/view-all">All Posts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" (click)="openModal()">Add New</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/browse/">Browse</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="https://mail.google.com/mail/?view=cm&fs=1&to=azhya.knox@revature.com&su=DBZ%20API%20Website%20Inquiry" title="Email Azhya Knox" target="_blank">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" (click)="logout($event)">Log Out</a>
+              </li>
+              <li class="nav-item close-menu-btn" (click)="closeMenuEvent()" [attr.aria-expanded]="!isCollapsed">
+                  <a class="nav-link text-white close-label">Close Menu</a>
+                  <a class="nav-link text-white"><i class="far fa-times-circle"></i></a>
+              </li>
+            </ul>
+            <!-- Links -->
+          </div>    
+    </nav>
+</div>

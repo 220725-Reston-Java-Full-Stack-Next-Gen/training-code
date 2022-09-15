@@ -1,0 +1,81 @@
+.bar-bg {
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.1);
+    height: 10vh;
+  }
+  
+  .menu-toggle-btn{
+    margin-top: 6px;
+  }
+  
+  .menu-options-div{
+    /* box-shadow: inset 0 0 2000px rgba(0, 0, 0, 1); */
+    background-color: #072083;
+    width: 15vw;
+    height: 100vh;
+    padding: 10px 5px;
+    text-align: center;
+    font-size: 1rem !important;
+    letter-spacing: 2px;
+    font-family: 'Roboto';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 5px solid whitesmoke;
+  }
+  
+  .menu-options-div li:not(:last-child){
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1rem !important;
+  }
+  
+  .menu-options-div li:not(:last-child):hover{
+    cursor: pointer;
+  }
+  
+  .close-menu-btn{
+    margin-top: auto;
+    opacity: 0.5;
+    font-size: 1.5rem !important;
+  }
+  
+  li.nav-item:nth-child(1){
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  
+  #navbarSupportedContent1 > ul > li.nav-item.close-menu-btn > a > i{
+    opacity: 0.5;
+    font-weight: 200;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+  }
+  
+  #navbarSupportedContent1 > ul > li.nav-item.close-menu-btn > a > i:hover{
+    opacity: 0.2;
+    cursor: pointer;
+  }
+  
+  .close-label{
+    font-weight: 200;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+  }
+  
+  .user-info{
+    letter-spacing: 2.5px;
+    font-family: 'Roboto';
+    margin-left: 10px;
+    position: fixed;
+    top: 20px;
+    left: 10px;
+  }
+  .user-info::after{
+    content: " ";
+      clear: both;
+      display: table;
+  }

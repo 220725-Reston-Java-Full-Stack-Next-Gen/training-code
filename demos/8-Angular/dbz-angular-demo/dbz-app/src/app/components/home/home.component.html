@@ -1,1 +1,26 @@
-<p>home works!</p>
+<!-- I want to bind my navbar component to render anytime this component is initialized -->
+<app-navbar></app-navbar>
+<!-- Now I will provide the rest of the homepage structure here -->
+<div class="container" id="opening-container">
+    <div class="row text-center align-items-center" style="margin-top: -80px;">
+        <!-- Because Bootstrap follows a 12-column CSS Grid layout for responsiveness, the extra divs are there to ensure that grid alignment stays on screen -->
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-5 gauche left-side">
+            <h1 class="main-title">Welcome to the Dragon Ball Z API Website</h1>
+            <p class="intro">The #1 online platform about all things DBZ!</p>
+            <div class="logout-section">
+                <app-login></app-login>
+            </div>
+        </div>
+
+        <div class="col-lg-5 corps right-side">
+            <img class="main-img" src="https://i.imgur.com/1slSEDp.png" alt="dragon ball">
+        </div>
+
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+<footer class="my-cr margin-bottom text-center fixed-bottom">
+    <span>&copy;2022 by Azhya Knox</span>
+</footer>

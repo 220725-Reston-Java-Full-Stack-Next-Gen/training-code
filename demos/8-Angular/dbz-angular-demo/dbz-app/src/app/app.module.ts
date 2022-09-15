@@ -12,6 +12,12 @@ import { CorsInterceptorService } from './services/cors-interceptor.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AboutComponent } from './components/about/about.component';
+import { SearchComponent } from './components/search/search.component';
+import { BrowseComponent } from './components/browse/browse.component';
+import { ViewAllComponent } from './components/blogs/view-all/view-all.component';
+import { CreateComponent } from './components/blogs/create/create.component';
 
 //This module is responsible for grouping together all of the components in the app and imports all additional modules needed for the app
 @NgModule({
@@ -19,7 +25,13 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    AboutComponent,
+    SearchComponent,
+    BrowseComponent,
+    ViewAllComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
