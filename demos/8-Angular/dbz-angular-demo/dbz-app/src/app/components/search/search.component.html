@@ -1,1 +1,16 @@
-<p>search works!</p>
+<div class="container" id="opening-container center-screen">
+    <div class="row text-center align-items-center" style="margin-top: -80px">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8 gauche left-side">
+        <h3>Browse Posts</h3>
+        <form class="form-inline center-screen">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchTerm" (change)="search()" name="search-bar"/>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">
+            Search
+          </button>
+        </form>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+  </div>
+  
