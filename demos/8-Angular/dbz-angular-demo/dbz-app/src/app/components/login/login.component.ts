@@ -24,18 +24,14 @@ export class LoginComponent implements OnInit {
   //allow us to tap into the lifecycle of our components and trigger actions at specific points in the lifecycle
   //ngOnInit = called once at the start of the component's lifecycle, initialize the component after Angular first displays the HTML Template
   ngOnInit(): void {
-    console.log(`Checking current location on site: ${window.location.href}`);
+    console.log('Checking current location:' + window.location.href)
     let target: HTMLElement | null = this.document.getElementById("login-container");
-    console.log(`Target: ${target}`);
-
-    //check location
-    if(window.location.href === "http://localhost:4200/login"){
-      //if login - change the display of that container to actually show on page
+    console.log("Target: " + target!.id);
+    if(window.location.href === "http://localhost:4200/login" || window.location.href === "http://dbz-api.s3-website-us-east-1.amazonaws.com/login"){
       console.log("on login page")
       target!.style.display = "initial";
     }else{
-      //if anywhere else - show the current location (shortened URI)
-      console.log(`On page: ${window.location.href.replace("http://localhost:4200/", "")}`);
+      console.log("On page: " + window.location.href.replace("http://localhost:4200/", "").replace("http://dbz-api.s3-website-us-east-1.amazonaws.com/", ""))
     }
   }
 
