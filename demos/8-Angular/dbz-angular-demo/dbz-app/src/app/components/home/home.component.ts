@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('Checking current location:' + window.location.href)
-    console.log("Test: " + window.location.href.replace("http://localhost:4200/", "").replace("http://dbz-api.s3-website-us-east-1.amazonaws.com/", ""))
+    console.log("Test: " + window.location.href.replace("http://localhost:4200/", "").replace("http://the-dbz-api.s3-website-us-east-1.amazonaws.com/", ""))
   }
 
 }

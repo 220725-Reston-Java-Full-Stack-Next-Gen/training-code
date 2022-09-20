@@ -27,11 +27,11 @@ export class LoginComponent implements OnInit {
     console.log('Checking current location:' + window.location.href)
     let target: HTMLElement | null = this.document.getElementById("login-container");
     console.log("Target: " + target!.id);
-    if(window.location.href === "http://localhost:4200/login" || window.location.href === "http://dbz-api.s3-website-us-east-1.amazonaws.com/login"){
+    if(window.location.href === "http://localhost:4200/login" || window.location.href === "http://the-dbz-api.s3-website-us-east-1.amazonaws.com/login"){
       console.log("on login page")
       target!.style.display = "initial";
     }else{
-      console.log("On page: " + window.location.href.replace("http://localhost:4200/", "").replace("http://dbz-api.s3-website-us-east-1.amazonaws.com/", ""))
+      console.log("On page: " + window.location.href.replace("http://localhost:4200/", "").replace("http://the-dbz-api.s3-website-us-east-1.amazonaws.com/", ""))
     }
   }
 
