@@ -27,3 +27,4 @@ hs_err_pid*
 .project
 demos/8-Angular/dbz-angular-demo/dbz-app/src/environments/environment.prod.ts
 demos/8-Angular/dbz-angular-demo/dbz-app/src/environments/environment.ts
+demos/9-DevOps/HelloSnakeGame/my-ec2-key.pem
