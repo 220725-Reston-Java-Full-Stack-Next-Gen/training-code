@@ -163,6 +163,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        # be sure to run this command in the same location as your pom.xml file
+        # Sonarcloud will by default run commands at the root directory of your repo unless instructed to go into another folder
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sophiagavrila_pipeline-demo
 ```
 
