@@ -1,4 +1,5 @@
 # How to Build a CI/CD Pipeline using Jenkins
+> In case you have trouble making the CI/CD pipeline using Jenkins, here is a [video](https://youtu.be/R8_veQiYBjI) on how to set up a pipeline using GitHub Actions and Docker.
 1. Create your EC2 instance.
 2. SSH into your EC2 instance.
 3. Install Jenkins to the EC2 instance.
