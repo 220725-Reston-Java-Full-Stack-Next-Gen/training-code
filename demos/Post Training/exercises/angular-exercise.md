@@ -38,6 +38,11 @@ Test Cases:
 3) View All Students component
 User Stories:
 - A user can view all students (student data can be hardcoded or retrieved from an external API that sends JSON)
+- To render each student, the associate must create an template TS class that contains following info about each student (create at least 3 students). You will need to then figure out how to render the students to the component view using directives:
+    - First Name
+    - Last Name
+    - Course
+    - Attendance
 - If no table data available, the page should show a message of "No information available."
 - A user can click on a link to be redirected to welcome webpage.
 
@@ -48,7 +53,9 @@ Test Cases:
 - Check if user clicks link then they are sent back to welcome page
 - Check if render for user information is showing on page correctly
 
-Note: no CSS styling is required - MVP is functionality.
+Note: 
+- no CSS styling is required - MVP is functionality.
+- 
 
 Instructions:
 - Discuss algorithm (aka approach of how you want to achieve MVP)
