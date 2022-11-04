@@ -29,7 +29,24 @@ User Stories:
 - A user can click on a link to be redirected to view-all-students webpage.
 - A user can click a button to logout
 
+Test Cases:
+- If component and important HTML elements exist on webpage
+- Check if user clicks link then they are sent to view-all page
+- Check if user clicks button then they are sent back to login page
+- Check if render for user information is showing on page correctly
+
 3) View All Students component
+User Stories:
+- A user can view all students (student data can be hardcoded or retrieved from an external API that sends JSON)
+- If no table data available, the page should show a message of "No information available."
+- A user can click on a link to be redirected to welcome webpage.
+
+Test Cases:
+- If component and important HTML elements exist on webpage
+- Check if table renders student data correctly if data is not present
+- Check if table renders student data correctly if data is present
+- Check if user clicks link then they are sent back to welcome page
+- Check if render for user information is showing on page correctly
 
 Note: no CSS styling is required - MVP is functionality.
 
